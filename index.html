@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="en-GB">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#062b55" />
+    <meta
+      name="description"
+      content="AccessGo Travel Money is a concept for accessible holiday money, designed around disabled travellers."
+    />
+    <title>AccessGo Travel Money</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#quote">Skip to travel money quote</a>
+
+    <div class="prototype-banner" role="note">
+      <strong>Concept website</strong>
+      <span>Rates are illustrative and sponsorship is not confirmed.</span>
+    </div>
+
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="AccessGo Travel Money home">
+        <span class="brand-main">AccessGo<span class="brand-arrow" aria-hidden="true"></span></span>
+        <span class="brand-sub">Travel Money</span>
+      </a>
+
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav">
+        <span aria-hidden="true">☰</span>
+        <span>Menu</span>
+      </button>
+
+      <nav id="main-nav" class="main-nav" aria-label="Main navigation">
+        <a href="#quote">Buy currency</a>
+        <a href="#how-it-works">How it works</a>
+        <a href="#help">Help</a>
+      </nav>
+
+      <div class="access-tools" aria-label="Accessibility tools">
+        <button id="text-size" class="tool-button" type="button" aria-label="Increase text size" aria-pressed="false">
+          <strong>A+</strong>
+        </button>
+        <button id="contrast" class="tool-button" type="button" aria-label="Turn high contrast on" aria-pressed="false">
+          <span class="contrast-icon" aria-hidden="true"></span>
+          <span>Contrast</span>
+        </button>
+        <button class="tool-button" type="button" data-open-modal="bsl-modal">
+          <span aria-hidden="true">🤟</span>
+          <span>BSL</span>
+        </button>
+      </div>
+
+      <a class="header-cta" href="#quote">Plan a brighter trip <span aria-hidden="true">→</span></a>
+    </header>
+
+    <main id="top">
+      <section class="product-grid" aria-label="AccessGo travel money service">
+        <article class="hero-panel">
+          <div class="hero-copy">
+            <p class="eyebrow">More travel. A brighter tomorrow.</p>
+            <h1>Holiday money designed around disabled travellers.</h1>
+            <p class="hero-intro">Buy foreign cash with clear prices, an accessible checkout, and support through text and BSL.</p>
+          </div>
+          <img
+            class="hero-image"
+            src="hero-travellers.jpg"
+            alt="Three friends enjoying a sunny coastal holiday, including a woman using a wheelchair"
+            width="654"
+            height="337"
+          />
+        </article>
+
+        <section id="quote" class="card quote-card" aria-labelledby="quote-heading">
+          <div class="card-heading-row">
+            <div>
+              <p class="section-label">Accessible online quote</p>
+              <h2 id="quote-heading">Buy travel money</h2>
+            </div>
+            <span class="demo-pill">Demo</span>
+          </div>
+
+          <div class="field-group">
+            <label for="pay-amount">You pay</label>
+            <div class="money-field">
+              <span aria-hidden="true">£</span>
+              <input id="pay-amount" type="number" min="75" max="2500" step="10" value="500" inputmode="decimal" />
+              <span class="currency-code"><span aria-hidden="true">🇬🇧</span> GBP</span>
+            </div>
+            <p id="amount-error" class="field-error" role="alert" hidden>Please enter between £75 and £2,500.</p>
+          </div>
+
+          <div class="field-group">
+            <label for="receive-currency">You receive</label>
+            <div class="money-field receive-field">
+              <output id="receive-amount" for="pay-amount receive-currency">€575.00</output>
+              <select id="receive-currency" aria-label="Currency to receive">
+                <option value="EUR">🇪🇺 EUR</option>
+                <option value="USD">🇺🇸 USD</option>
+                <option value="CAD">🇨🇦 CAD</option>
+                <option value="AUD">🇦🇺 AUD</option>
+                <option value="JPY">🇯🇵 JPY</option>
+              </select>
+            </div>
+            <p id="rate-copy" class="rate-copy">Example rate: £1 = €1.15</p>
+          </div>
+
+          <fieldset class="delivery-fieldset">
+            <legend>Delivery method</legend>
+            <div class="delivery-options">
+              <label class="delivery-option is-selected">
+                <input type="radio" name="delivery" value="home" checked />
+                <span class="radio-mark" aria-hidden="true"></span>
+                <span class="delivery-icon" aria-hidden="true">⌂</span>
+                <span><strong>Home delivery</strong><small>Delivered to your door</small></span>
+              </label>
+              <label class="delivery-option">
+                <input type="radio" name="delivery" value="collection" />
+                <span class="radio-mark" aria-hidden="true"></span>
+                <span class="delivery-icon" aria-hidden="true">▥</span>
+                <span><strong>Collection</strong><small>Collect from a local branch</small></span>
+              </label>
+            </div>
+          </fieldset>
+
+          <dl class="quote-summary">
+            <div><dt>Delivery</dt><dd id="delivery-fee">£0.00</dd></div>
+            <div class="summary-total"><dt>Total</dt><dd id="total-pay">£500.00</dd></div>
+          </dl>
+
+          <button id="review-order" class="primary-button" type="button">Review example order <span aria-hidden="true">→</span></button>
+          <p class="quote-note">Illustrative quote — not a live rate and no payment will be taken.</p>
+        </section>
+
+        <div class="support-column">
+          <section class="card chat-card" aria-labelledby="chat-heading">
+            <div class="chat-header">
+              <span class="round-icon robot-icon" aria-hidden="true">☻</span>
+              <div>
+                <h2 id="chat-heading">Your AI travel helper</h2>
+                <p>Demo answers tailored to common questions.</p>
+              </div>
+            </div>
+
+            <div id="chat-log" class="chat-log" role="log" aria-live="polite" aria-label="Travel helper conversation">
+              <div class="message user-message">I’m going to Spain. Can you help me buy euros?</div>
+              <div class="message bot-message">Of course. Enter your budget and I’ll guide you through the next steps.</div>
+            </div>
+
+            <div class="quick-actions" aria-label="Suggested questions">
+              <button type="button" data-chat-answer="costs">Explain the costs</button>
+              <button type="button" data-chat-answer="delivery">Help with delivery</button>
+            </div>
+
+            <form id="chat-form" class="chat-form">
+              <label class="sr-only" for="chat-input">Ask the travel helper a question</label>
+              <input id="chat-input" type="text" autocomplete="off" placeholder="Type your message…" maxlength="180" />
+              <button type="submit" aria-label="Send message">➤</button>
+            </form>
+            <p class="chat-disclaimer">This demonstration assistant does not provide live rates or financial advice.</p>
+          </section>
+
+          <section id="help" class="card human-help" aria-labelledby="human-help-heading">
+            <h2 id="human-help-heading">Need a human? We’re here too.</h2>
+            <div class="help-options">
+              <button class="help-option" type="button" data-open-modal="support-modal">
+                <span class="round-icon" aria-hidden="true">•••</span>
+                <span><strong>Text support</strong><small>Help that works for you</small></span>
+              </button>
+              <button class="help-option" type="button" data-open-modal="bsl-modal">
+                <span class="round-icon" aria-hidden="true">🤟</span>
+                <span><strong>BSL guidance</strong><small>Information in British Sign Language</small></span>
+              </button>
+            </div>
+          </section>
+        </div>
+      </section>
+
+      <section class="benefits" aria-label="AccessGo benefits">
+        <article>
+          <span class="benefit-icon yellow" aria-hidden="true">£</span>
+          <div><h2>Clear total prices</h2><p>No hidden fees. See what you would pay.</p></div>
+        </article>
+        <article>
+          <span class="benefit-icon teal" aria-hidden="true">♿</span>
+          <div><h2>Accessible ordering</h2><p>Designed for different needs at every step.</p></div>
+        </article>
+        <article>
+          <span class="benefit-icon yellow" aria-hidden="true">●●</span>
+          <div><h2>Support your way</h2><p>Get help by text, BSL or chat.</p></div>
+        </article>
+      </section>
+
+      <section id="how-it-works" class="how-section">
+        <div class="section-heading">
+          <p class="eyebrow">Simple by design</p>
+          <h2>How AccessGo would work</h2>
+          <p>This prototype demonstrates the accessible journey. A confirmed currency partner would provide the live rate, payment and fulfilment.</p>
+        </div>
+        <ol class="steps">
+          <li><span>1</span><div><h3>Choose your money</h3><p>Enter your budget and select the currency you need.</p></div></li>
+          <li><span>2</span><div><h3>Get support your way</h3><p>Use clear text, accessibility controls, BSL guidance or chat.</p></div></li>
+          <li><span>3</span><div><h3>Order securely</h3><p>After partnership approval, checkout would be handled by the authorised currency provider.</p></div></li>
+        </ol>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-brand">
+        <a class="brand brand-inverse" href="#top" aria-label="AccessGo Travel Money home">
+          <span class="brand-main">AccessGo<span class="brand-arrow" aria-hidden="true"></span></span>
+          <span class="brand-sub">Travel Money</span>
+        </a>
+        <span class="footer-divider" aria-hidden="true"></span>
+        <p>Travel further together.</p>
+      </div>
+
+      <div class="sponsor-example" aria-label="Example Travelex sponsorship, not confirmed">
+        <span class="sponsor-label">Sponsored by</span>
+        <span class="travelex-lockup">
+          <span class="travelex-mark" aria-hidden="true"><i></i><i></i></span>
+          <strong>travelex</strong>
+        </span>
+        <span class="sponsor-warning">Example only — sponsorship not confirmed.</span>
+      </div>
+    </footer>
+
+    <dialog id="review-modal" class="modal">
+      <form method="dialog" class="modal-card">
+        <button class="modal-close" value="close" aria-label="Close order summary">×</button>
+        <span class="modal-icon" aria-hidden="true">✓</span>
+        <p class="section-label">Example order</p>
+        <h2>Your travel money summary</h2>
+        <dl class="modal-summary">
+          <div><dt>You pay</dt><dd id="modal-pay">£500.00</dd></div>
+          <div><dt>You receive</dt><dd id="modal-receive">€575.00</dd></div>
+          <div><dt>Method</dt><dd id="modal-delivery">Home delivery</dd></div>
+          <div><dt>Total</dt><dd id="modal-total">£500.00</dd></div>
+        </dl>
+        <div class="info-box">
+          <strong>This is a working demonstration.</strong>
+          <p>No payment can be made. After a formal partnership, this step could connect securely to the currency provider’s checkout.</p>
+        </div>
+        <button class="primary-button" value="close">Return to quote</button>
+      </form>
+    </dialog>
+
+    <dialog id="bsl-modal" class="modal">
+      <form method="dialog" class="modal-card">
+        <button class="modal-close" value="close" aria-label="Close BSL information">×</button>
+        <span class="modal-icon" aria-hidden="true">🤟</span>
+        <p class="section-label">British Sign Language</p>
+        <h2>BSL guidance is planned</h2>
+        <p>AccessGo is designed to include short BSL videos explaining rates, delivery and ordering. This prototype does not yet include a live interpreter or signed video.</p>
+        <div class="video-placeholder" role="img" aria-label="Placeholder for a future BSL guidance video">
+          <span aria-hidden="true">▶</span>
+          <strong>Future BSL video</strong>
+        </div>
+        <button class="primary-button" value="close">Close</button>
+      </form>
+    </dialog>
+
+    <dialog id="support-modal" class="modal">
+      <form method="dialog" class="modal-card">
+        <button class="modal-close" value="close" aria-label="Close support information">×</button>
+        <span class="modal-icon" aria-hidden="true">•••</span>
+        <p class="section-label">Text support</p>
+        <h2>Human support coming with launch</h2>
+        <p>This demonstration does not connect to a support team. A live service could offer web chat, SMS or WhatsApp-style text support without requiring a phone call.</p>
+        <button class="primary-button" value="close">Close</button>
+      </form>
+    </dialog>
+
+    <noscript><p class="noscript">JavaScript is needed for the quote calculator and chat demonstration.</p></noscript>
+  </body>
+</html>
