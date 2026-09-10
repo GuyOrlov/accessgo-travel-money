@@ -622,3 +622,35 @@ html.high-contrast .delivery-option.is-selected { border-width: 3px; }
   .offer-numbers { border-block: 1px solid var(--line); padding-block: 1rem; }
   .results-toolbar { align-items: stretch; flex-direction: column; }
 }
+
+/* Payment ideas, clearly labelled review examples and the service directory. */
+.bottom-trust { padding: 2rem clamp(1rem, 4vw, 4rem); background: var(--surface); border-top: 1px solid var(--line); }
+.payment-strip { max-width: 1300px; margin: 0 auto 2rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem 2rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--line); }
+.payment-strip h2, .reviews-heading h2 { font-size: 1.5rem; margin: 0 0 0.4rem; }
+.payment-strip p, .reviews-heading p { color: var(--muted); font-size: 1rem; margin: 0; }
+.payment-badges { display: flex; flex-wrap: wrap; align-items: center; gap: 0.6rem; list-style: none; padding: 0; margin: 0; }
+.payment-badges li { min-height: 2.8rem; display: flex; align-items: center; padding: 0.5rem 0.8rem; font-size: 1rem; font-weight: 700; color: var(--ink); background: var(--surface); border: 1px solid var(--line); border-radius: 0.5rem; }
+.payment-badges .pay-visa { font-size: 1.4rem; font-style: italic; color: var(--blue); }
+.reviews-heading, .review-grid, .trustpilot-note { max-width: 1300px; margin-inline: auto; }
+.review-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem; margin-top: 1.25rem; align-items: start; }
+.sample-review { background: var(--page); border: 1px solid var(--line); border-radius: 0.75rem; padding: 1.2rem; }
+.review-meta { display: flex; flex-wrap: wrap; gap: 0.4rem 0.75rem; align-items: center; font-size: 0.875rem; color: var(--muted); }
+.review-stars { color: var(--blue); letter-spacing: 0.06em; font-size: 1.15rem; }
+.sample-review h3 { font-size: 1.125rem; margin: 0.7rem 0 0.5rem; }
+.sample-review p { font-size: 1rem; margin: 0; }
+.trustpilot-note { color: var(--muted); font-size: 0.875rem; margin-top: 1rem; margin-bottom: 0; }
+.footer-directory { background: var(--navy); color: white; padding: 2rem clamp(1rem, 4vw, 4rem); border-bottom: 1px solid #71859b; }
+.footer-directory-inner { max-width: 1300px; margin: 0 auto; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2rem 4rem; }
+.footer-directory h2 { color: var(--yellow); font-size: 1.25rem; margin: 0 0 0.75rem; }
+.footer-directory ul { list-style: none; padding: 0; margin: 0; }
+.footer-directory a, .footer-directory summary { display: block; width: fit-content; min-height: 2.75rem; padding: 0.5rem 0; font-size: 1rem; cursor: pointer; }
+.footer-directory summary { display: list-item; margin-inline-start: 1.1rem; }
+.footer-directory small { font-size: 0.875rem; }
+.footer-directory details p { margin: 0.3rem 0 0.75rem; font-size: 0.9375rem; border-inline-start: 2px solid var(--yellow); padding-inline-start: 0.8rem; max-width: 40rem; }
+.footer-directory :focus-visible { outline-color: white; }
+@media (max-width: 1050px) { .review-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 560px) {
+  .review-grid, .footer-directory-inner { grid-template-columns: minmax(0, 1fr); }
+  .bottom-trust, .footer-directory { padding: 1.5rem 1rem; }
+  .payment-badges { gap: 0.5rem; }
+}
