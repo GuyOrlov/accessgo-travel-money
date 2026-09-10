@@ -219,7 +219,7 @@ a { color: inherit; }
   text-transform: uppercase;
 }
 
-.hero-panel h1 {
+.hero-panel h2 {
   margin: 0;
   max-width: 720px;
   font-size: clamp(2.25rem, 3.5vw, 4.25rem);
@@ -261,7 +261,7 @@ a { color: inherit; }
 .card-heading-row { display: flex; justify-content: space-between; gap: 1rem; align-items: flex-start; }
 .card-heading-row .section-label { margin-bottom: 0.15rem; }
 
-.card h2, .quote-card h2 {
+.card h2, .quote-card h1 {
   margin: 0;
   font-size: clamp(1.45rem, 2vw, 2rem);
   line-height: 1.16;
@@ -611,7 +611,7 @@ html.high-contrast .primary-button { background: #000; color: #fff; }
   .tool-button span:last-child:not(.contrast-icon) { display: none; }
   .product-grid { grid-template-columns: 1fr; padding: 1rem; }
   .hero-panel, .quote-card { min-height: auto; }
-  .hero-panel h1 { font-size: clamp(2.5rem, 8vw, 4.4rem); }
+  .hero-panel h2 { font-size: clamp(2rem, 6vw, 3rem); }
   .support-column { grid-column: auto; grid-template-columns: 1fr; }
   .benefits { grid-template-columns: 1fr; }
   .benefits article { justify-content: flex-start; padding: 0.35rem 0; }
@@ -627,7 +627,7 @@ html.high-contrast .primary-button { background: #000; color: #fff; }
   .tool-button { flex: 1; }
   .tool-button span:last-child:not(.contrast-icon) { display: inline; }
   .hero-copy { padding: 1.5rem 1.15rem; }
-  .hero-panel h1 { font-size: 2.55rem; }
+  .hero-panel h2 { font-size: 2rem; }
   .hero-image { min-height: 240px; object-position: 46% center; }
   .delivery-options, .quick-actions, .help-options { grid-template-columns: 1fr; }
   .money-field input, .receive-field output { font-size: 1.38rem; }
@@ -638,6 +638,61 @@ html.high-contrast .primary-button { background: #000; color: #fff; }
   .sponsor-example { align-items: flex-start; text-align: left; }
   .footer-brand p, .footer-divider { display: none; }
   .modal-card { padding: 1.4rem; }
+}
+
+/* Keep the quote first in reading order; retain the desktop composition. */
+.hero-panel { grid-column: 1; grid-row: 1; }
+.quote-card { grid-column: 2; grid-row: 1; }
+.product-grid > *, .card-heading-row > div { min-width: 0; }
+.brand-sub { font-size: 0.75rem; letter-spacing: 0.22em; }
+.delivery-option small, .help-option small, .help-option strong,
+.benefits p, .quick-actions button, .quote-note, .chat-disclaimer,
+.rate-copy, .sponsor-label, .sponsor-warning, .section-label { font-size: 0.875rem; }
+.message, .steps p { font-size: 1rem; }
+.tool-button, .menu-toggle, .quick-actions button { min-height: 44px; }
+.inclusion-section { max-width: 1250px; margin: 0 auto; padding: 3.5rem clamp(1.25rem, 5vw, 4rem) 0; }
+.inclusion-stats { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; margin-top: 1.75rem; }
+.stat-card { padding: clamp(1.25rem, 3vw, 2rem); border: 1px solid var(--line); border-top: 5px solid var(--teal); border-radius: 1rem; background: var(--surface); }
+.stat-card:nth-child(2) { border-top-color: var(--yellow); }
+.stat-card h3 { margin: 0; }
+.stat-value { display: block; font-size: clamp(2.25rem, 4vw, 3.5rem); font-weight: 800; line-height: 1.15; letter-spacing: -0.04em; font-variant-numeric: tabular-nums; }
+.stat-caption { display: block; margin-top: 0.75rem; font-size: 1.125rem; line-height: 1.45; }
+.stat-card p { color: var(--muted); }
+.stat-card a { display: inline-block; padding: 0.5rem 0; font-size: 0.875rem; text-underline-offset: 0.2em; }
+.data-note { color: var(--muted); font-size: 0.875rem; line-height: 1.6; }
+.money-field { min-height: 3.625rem; height: auto; }
+.money-field input, .receive-field output { font-variant-numeric: tabular-nums; }
+.sponsor-example { gap: 0.4rem; }
+
+@media (max-width: 900px) {
+  .site-header { position: relative; }
+  .hero-panel, .quote-card { grid-column: auto; grid-row: auto; }
+  .hero-image { display: none; }
+  .hero-panel { box-shadow: none; }
+  .quote-card { border-top: 5px solid var(--teal); }
+  .quote-card h1 { font-size: clamp(1.75rem, 6vw, 2.5rem); line-height: 1.15; letter-spacing: -0.035em; }
+  .hero-copy { padding: 1.5rem; }
+  .hero-panel h2 { line-height: 1.15; letter-spacing: -0.035em; }
+  .inclusion-stats { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 560px) {
+  .site-header { gap: 0.75rem; }
+  .site-header .brand-main { font-size: 1.75rem; }
+  .product-grid { padding: 0.75rem; }
+  .quote-card { padding: 1rem; }
+  .card-heading-row { flex-wrap: wrap; gap: 0.5rem; }
+  .money-field input, .receive-field output { font-size: 1.5rem; }
+  .receive-field output { padding: 0 0.5rem; overflow-wrap: anywhere; }
+  .currency-code, .receive-field select { min-width: 0; padding: 0.75rem 0.4rem; font-size: 0.875rem; }
+  .access-tools { flex-wrap: wrap; }
+  .tool-button { padding: 0.55rem 0.4rem; }
+  .site-footer { align-items: center; text-align: center; gap: 1.5rem; padding: 2rem 1.25rem; }
+  .footer-brand { flex-direction: column; gap: 0.75rem; }
+  .footer-brand p { display: block; font-size: 1rem; }
+  .sponsor-example { width: 100%; align-items: center; text-align: center; border-top: 1px solid #71859b; padding-top: 1.5rem; }
+  .inclusion-section { padding-top: 2.5rem; }
+  .section-heading h2 { font-size: 2rem; line-height: 1.15; letter-spacing: -0.035em; }
 }
 
 @media (prefers-reduced-motion: reduce) {
