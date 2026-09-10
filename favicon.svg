@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="AccessGo">
-  <rect width="64" height="64" rx="15" fill="#062b55"/>
-  <path d="M15 32h26" stroke="#32d6c3" stroke-width="9" stroke-linecap="round"/>
-  <path d="m35 18 14 14-14 14" fill="none" stroke="#32d6c3" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="ITER Travel Money">
+  <rect width="64" height="64" rx="15" fill="#2457E6"/>
+  <path d="M20 14h24v8h-8v20h8v8H20v-8h8V22h-8z" fill="#FFF"/>
+  <path d="M20 55h24" stroke="#FFD84D" stroke-width="4" stroke-linecap="round"/>
 </svg>
