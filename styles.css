@@ -7,17 +7,17 @@
 }
 
 :root {
-  --navy: #10213a;
-  --blue: #2457e6;
-  --blue-hover: #1945be;
-  --blue-soft: #eaf0ff;
+  --navy: #0b4f6c;
+  --blue: #0b4f6c;
+  --blue-hover: #073b51;
+  --blue-soft: #e8f3f6;
   --yellow: #ffd84d;
-  --ink: #10213a;
-  --muted: #526174;
-  --line: #d3dcea;
+  --ink: #163440;
+  --muted: #49616b;
+  --line: #cfdee4;
   --surface: #ffffff;
-  --page: #f4f7fc;
-  --shadow: 0 14px 40px rgba(16, 33, 58, 0.08);
+  --page: #f3f8fa;
+  --shadow: 0 14px 40px rgba(11, 79, 108, 0.08);
   --body-scale: 1;
 }
 
@@ -235,7 +235,7 @@ html[dir="rtl"] .chat-form button { border-radius: 0.7rem 0 0 0.7rem; }
   letter-spacing: -0.025em;
 }
 .hero-panel h2 .hero-accent { color: var(--yellow); }
-.hero-intro { margin: 1.25rem 0 0; color: #edf2ff; font-size: 1.125rem; line-height: 1.6; }
+.hero-intro { margin: 1.25rem 0 0; color: #edf7fa; font-size: 1.125rem; line-height: 1.6; }
 .hero-image {
   margin-top: 0;
   width: 100%;
@@ -265,7 +265,7 @@ html[dir="rtl"] .chat-form button { border-radius: 0.7rem 0 0 0.7rem; }
   min-height: 3.75rem;
   display: flex;
   align-items: center;
-  border: 1px solid #8a9aae;
+  border: 1px solid #7b939e;
   border-radius: 0.75rem;
   background: var(--surface);
 }
@@ -320,14 +320,14 @@ html[dir="rtl"] .chat-form button { border-radius: 0.7rem 0 0 0.7rem; }
   grid-template-columns: auto 1fr;
   align-items: center;
   gap: 0.55rem;
-  border: 1.5px solid #8a9aae;
+  border: 1.5px solid #7b939e;
   border-radius: 0.75rem;
   cursor: pointer;
 }
 .delivery-option.is-selected { border-color: var(--blue); background: var(--blue-soft); }
 .delivery-option:has(input:focus-visible) { outline: 3px solid var(--navy); outline-offset: 3px; box-shadow: 0 0 0 6px var(--yellow); }
 .delivery-option input { position: absolute; opacity: 0; pointer-events: none; }
-.radio-mark { width: 1.2rem; height: 1.2rem; border: 2px solid #73839a; border-radius: 50%; }
+.radio-mark { width: 1.2rem; height: 1.2rem; border: 2px solid #6d8691; border-radius: 50%; }
 .delivery-option.is-selected .radio-mark { border: 0.34rem solid var(--blue); }
 .delivery-icon { display: none; }
 .delivery-option strong, .delivery-option small { display: block; overflow-wrap: break-word; }
@@ -399,7 +399,7 @@ html[dir="rtl"] .chat-form button { border-radius: 0.7rem 0 0 0.7rem; }
   font-weight: 700;
 }
 .quick-actions button:hover { background: var(--blue-soft); }
-.chat-form { margin-top: 1rem; display: grid; grid-template-columns: minmax(0, 1fr) auto; border: 1px solid #8a9aae; border-radius: 0.75rem; }
+.chat-form { margin-top: 1rem; display: grid; grid-template-columns: minmax(0, 1fr) auto; border: 1px solid #7b939e; border-radius: 0.75rem; }
 .chat-form input { text-align: start; min-width: 0; padding: 0.85rem; border: 0; border-radius: 0.75rem 0 0 0.75rem; outline: 0; box-shadow: none; background: var(--surface); color: var(--ink); font-size: 1rem; }
 .chat-form input::placeholder { color: var(--muted); }
 .chat-form button { min-width: 3rem; border: 0; border-radius: 0 0.7rem 0.7rem 0; background: var(--blue); color: white; font-size: 1.15rem; }
@@ -467,11 +467,11 @@ html[dir="rtl"] .chat-form button { border-radius: 0.7rem 0 0 0.7rem; }
 }
 .footer-brand { display: flex; align-items: center; gap: 1.5rem; }
 .brand-inverse { color: white; }
-.footer-divider { flex: 0 0 auto; width: 1px; height: 52px; background: #71859b; }
+.footer-divider { flex: 0 0 auto; width: 1px; height: 52px; background: #7595a3; }
 .footer-brand p { max-width: 28ch; margin: 0; font-size: 1.125rem; }
 .sponsor-example { display: flex; flex-direction: column; gap: 0.45rem; align-items: center; text-align: center; }
 .sponsor-label { font-size: 0.875rem; }
-.sponsor-warning { font-size: 0.875rem; color: #edf2ff; }
+.sponsor-warning { font-size: 0.875rem; color: #edf7fa; }
 .travelex-lockup { direction: ltr; display: inline-flex; align-items: center; gap: 0.55rem; line-height: 1; }
 .travelex-lockup strong { color: white; font-family: Arial, sans-serif; font-size: 1.85rem; letter-spacing: -0.06em; }
 .travelex-mark { position: relative; width: 2.15rem; height: 1.5rem; display: inline-block; }
@@ -479,8 +479,8 @@ html[dir="rtl"] .chat-form button { border-radius: 0.7rem 0 0 0.7rem; }
 .travelex-mark i:first-child { left: 0.1rem; top: 0.2rem; background: #ee193c; }
 .travelex-mark i:last-child { right: 0.05rem; bottom: 0.15rem; background: #1264d9; }
 
-.modal { width: min(92vw, 540px); max-height: 90dvh; padding: 0; border: 0; border-radius: 1rem; background: var(--surface); color: var(--ink); box-shadow: 0 30px 90px rgba(16, 33, 58, 0.4); }
-.modal::backdrop { background: rgba(16, 33, 58, 0.75); }
+.modal { width: min(92vw, 540px); max-height: 90dvh; padding: 0; border: 0; border-radius: 1rem; background: var(--surface); color: var(--ink); box-shadow: 0 30px 90px rgba(11, 79, 108, 0.4); }
+.modal::backdrop { background: rgba(11, 79, 108, 0.75); }
 .modal-card { position: relative; padding: 2rem; }
 .modal-close { position: absolute; top: 0.75rem; inset-inline-end: 0.75rem; min-width: 2.75rem; min-height: 2.75rem; border: 1px solid var(--line); border-radius: 50%; background: var(--surface); color: var(--ink); font-size: 1.5rem; }
 .modal-icon { width: 3.4rem; height: 3.4rem; margin-bottom: 1rem; display: grid; place-items: center; border-radius: 50%; background: var(--blue-soft); color: var(--blue); font-size: 1.5rem; font-weight: 800; }
@@ -575,7 +575,7 @@ html.high-contrast .delivery-option.is-selected { border-width: 3px; }
   .site-footer { flex-direction: column; align-items: center; text-align: center; gap: 1.5rem; padding: 2rem 1.25rem; }
   .footer-brand { flex-direction: column; gap: 1rem; }
   .footer-divider { display: none; }
-  .sponsor-example { width: 100%; border-top: 1px solid #71859b; padding-top: 1.5rem; }
+  .sponsor-example { width: 100%; border-top: 1px solid #7595a3; padding-top: 1.5rem; }
   .modal-card { padding: 1.4rem; }
 }
 
@@ -599,7 +599,7 @@ html.high-contrast .delivery-option.is-selected { border-width: 3px; }
 .best-offer { border: 2px solid var(--blue); }
 .offer-provider h2 { font-size: 1.25rem; margin: 0.25rem 0 0.65rem; }
 .offer-caption, .offer-metric dt { display: block; font-size: 0.875rem; color: var(--muted); }
-.best-badge { display: inline-block; border-radius: 0.4rem; padding: 0.2rem 0.5rem; background: var(--yellow); color: #10213a; font-size: 0.875rem; font-weight: 700; }
+.best-badge { display: inline-block; border-radius: 0.4rem; padding: 0.2rem 0.5rem; background: var(--yellow); color: #163440; font-size: 0.875rem; font-weight: 700; }
 .offer-numbers { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: 0.6rem 1rem; margin: 0; }
 .offer-amount { grid-row: span 2; }
 .offer-metric dd { margin: 0.2rem 0 0; font-size: 1rem; font-weight: 700; overflow-wrap: anywhere; }
@@ -639,7 +639,7 @@ html.high-contrast .delivery-option.is-selected { border-width: 3px; }
 .sample-review h3 { font-size: 1.125rem; margin: 0.7rem 0 0.5rem; }
 .sample-review p { font-size: 1rem; margin: 0; }
 .trustpilot-note { color: var(--muted); font-size: 0.875rem; margin-top: 1rem; margin-bottom: 0; }
-.footer-directory { background: var(--navy); color: white; padding: 2rem clamp(1rem, 4vw, 4rem); border-bottom: 1px solid #71859b; }
+.footer-directory { background: var(--navy); color: white; padding: 2rem clamp(1rem, 4vw, 4rem); border-bottom: 1px solid #7595a3; }
 .footer-directory-inner { max-width: 1300px; margin: 0 auto; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2rem 4rem; }
 .footer-directory h2 { color: var(--yellow); font-size: 1.25rem; margin: 0 0 0.75rem; }
 .footer-directory ul { list-style: none; padding: 0; margin: 0; }

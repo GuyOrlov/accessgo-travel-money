@@ -8,10 +8,10 @@ An accessible holiday money website concept. Formerly AccessGo, ITER and KITE Tr
 
 ## Brand
 
-- Journey Blue: `#2457E6`
-- Midnight Navy: `#10213A`
+- Barrier Teal: `#0B4F6C`
+- Deep Teal (hover): `#073B51`
 - Sunshine Yellow: `#FFD84D`
-- Cloud: `#F4F7FC`
+- Cloud: `#F3F8FA`
 - White: `#FFFFFF`
 - Typeface: self-hosted Atkinson Hyperlegible Next, weights 200–800.
 - Values: independence, clarity, choice and inclusion.
