@@ -1,8 +1,8 @@
-# ITER Travel Money
+# KITE Travel Money
 
 **Your money. Your journey. Your independence.**
 
-An accessible holiday money website concept designed around Deaf, hard-of-hearing and disabled travellers. Formerly AccessGo Travel Money.
+An accessible holiday money website concept designed around Deaf, hard-of-hearing and disabled travellers. Formerly AccessGo and ITER Travel Money.
 
 ## Brand
 
@@ -28,7 +28,7 @@ Rates and delivery charges are illustrative. The website cannot accept payments.
 
 WHO population estimates are linked on the page. They are not customer numbers, and the groups overlap.
 
-No domain has been purchased or changed as part of the redesign.
+The requested domain is `getkite.com`. Registration, ownership and connection must be confirmed before changing the live website address. No domain has been purchased or changed as part of this rebrand.
 
 ## Font licence
 

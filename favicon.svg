@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="ITER Travel Money">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="KITE Travel Money">
   <rect width="64" height="64" rx="15" fill="#2457E6"/>
-  <path d="M20 14h24v8h-8v20h8v8H20v-8h8V22h-8z" fill="#FFF"/>
+  <path d="M19 14h8v15l13-15h10L34 32l17 18H40L27 35v15h-8z" fill="#FFF"/>
   <path d="M20 55h24" stroke="#FFD84D" stroke-width="4" stroke-linecap="round"/>
 </svg>
