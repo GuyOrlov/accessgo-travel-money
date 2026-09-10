@@ -1,11 +1,13 @@
 const rates = {
-  EUR: { rate: 1.15, symbol: "€", locale: "en-IE", name: "euros" },
-  USD: { rate: 1.34, symbol: "$", locale: "en-US", name: "US dollars" },
-  CAD: { rate: 1.84, symbol: "CA$", locale: "en-CA", name: "Canadian dollars" },
-  AUD: { rate: 2.02, symbol: "A$", locale: "en-AU", name: "Australian dollars" },
-  JPY: { rate: 198, symbol: "¥", locale: "ja-JP", name: "Japanese yen" }
+  EUR: { rate: 1.15 },
+  USD: { rate: 1.34 },
+  CAD: { rate: 1.84 },
+  AUD: { rate: 2.02 },
+  JPY: { rate: 198 }
 };
 
+const languages = window.KITE_LANGUAGES;
+const languageChoice = document.querySelector("#site-language");
 const amountInput = document.querySelector("#pay-amount");
 const currencySelect = document.querySelector("#receive-currency");
 const receiveOutput = document.querySelector("#receive-amount");
@@ -14,17 +16,51 @@ const deliveryFeeOutput = document.querySelector("#delivery-fee");
 const totalOutput = document.querySelector("#total-pay");
 const amountError = document.querySelector("#amount-error");
 const reviewButton = document.querySelector("#review-order");
+const textSizeButton = document.querySelector("#text-size");
+const contrastButton = document.querySelector("#contrast");
+const menuToggle = document.querySelector(".menu-toggle");
+const mainNav = document.querySelector("#main-nav");
+const chatLog = document.querySelector("#chat-log");
+const chatForm = document.querySelector("#chat-form");
+const chatInput = document.querySelector("#chat-input");
 
-function formatGBP(value) {
-  return new Intl.NumberFormat("en-GB", { style: "currency", currency: "GBP" }).format(value);
+const numberFormats = new Map();
+let activeLanguage = "en-GB";
+
+function readPreference(key) {
+  try { return localStorage.getItem(key); }
+  catch { return null; }
 }
 
-function formatForeign(value, currency) {
-  return new Intl.NumberFormat(rates[currency].locale, {
-    style: "currency",
-    currency,
-    maximumFractionDigits: currency === "JPY" ? 0 : 2
-  }).format(value);
+function savePreference(key, value) {
+  try { localStorage.setItem(key, value); }
+  catch { /* The controls still work when browser storage is unavailable. */ }
+}
+
+function formatMoney(value, currency) {
+  const key = activeLanguage + ":" + currency;
+  if (!numberFormats.has(key)) {
+    numberFormats.set(key, new Intl.NumberFormat(activeLanguage, {
+      style: "currency",
+      currency,
+      minimumFractionDigits: currency === "JPY" ? 0 : 2,
+      maximumFractionDigits: currency === "JPY" ? 0 : 2
+    }));
+  }
+  return numberFormats.get(key).format(value);
+}
+
+function formatGBP(value) { return formatMoney(value, "GBP"); }
+function formatForeign(value, currency) { return formatMoney(value, currency); }
+
+function t(key, values = {}) {
+  const text = languages[activeLanguage].strings[key] ?? languages["en-GB"].strings[key] ?? key;
+  const amounts = { min: 75, max: 2500, pound: 1, threshold: 500, fee: 4.99 };
+  return text.replace(/\{([a-zA-Z]+)\}/g, (match, name) => {
+    if (Object.prototype.hasOwnProperty.call(values, name)) return String(values[name]);
+    if (Object.prototype.hasOwnProperty.call(amounts, name)) return formatGBP(amounts[name]);
+    return match;
+  });
 }
 
 function getQuote() {
@@ -36,19 +72,97 @@ function getQuote() {
   return { amount, currency, valid, delivery, fee, received: valid ? amount * rates[currency].rate : 0 };
 }
 
+function updateReview(quote) {
+  document.querySelector("#modal-pay").textContent = quote.valid ? formatGBP(quote.amount) : "—";
+  document.querySelector("#modal-receive").textContent = quote.valid ? formatForeign(quote.received, quote.currency) : "—";
+  document.querySelector("#modal-delivery").textContent = t(quote.delivery === "home" ? "homeDelivery" : "collection");
+  document.querySelector("#modal-total").textContent = quote.valid ? formatGBP(quote.amount + quote.fee) : "—";
+}
+
 function updateQuote() {
   const quote = getQuote();
   amountError.hidden = quote.valid;
+  amountError.textContent = t("amountError");
   amountInput.setAttribute("aria-invalid", String(!quote.valid));
+  if (quote.valid) amountInput.removeAttribute("aria-describedby");
+  else amountInput.setAttribute("aria-describedby", "amount-error");
   reviewButton.disabled = !quote.valid;
   receiveOutput.textContent = quote.valid ? formatForeign(quote.received, quote.currency) : "—";
-  rateCopy.textContent = `Example rate: £1 = ${formatForeign(rates[quote.currency].rate, quote.currency)}`;
+  rateCopy.textContent = t("exampleRate", { rate: formatForeign(rates[quote.currency].rate, quote.currency) });
   deliveryFeeOutput.textContent = quote.valid ? formatGBP(quote.fee) : "—";
   totalOutput.textContent = quote.valid ? formatGBP(quote.amount + quote.fee) : "—";
+  updateReview(quote);
+}
+
+function updatePreferenceLabels() {
+  const textLarge = document.documentElement.classList.contains("text-large");
+  const contrastHigh = document.documentElement.classList.contains("high-contrast");
+  textSizeButton.setAttribute("aria-pressed", String(textLarge));
+  textSizeButton.setAttribute("aria-label", t(textLarge ? "textStandard" : "textLarger"));
+  contrastButton.setAttribute("aria-pressed", String(contrastHigh));
+  contrastButton.setAttribute("aria-label", t(contrastHigh ? "contrastOff" : "contrastOn"));
+}
+
+function applyLanguage(locale, save = true) {
+  activeLanguage = Object.prototype.hasOwnProperty.call(languages, locale) ? locale : "en-GB";
+  document.documentElement.lang = activeLanguage;
+  document.documentElement.dir = languages[activeLanguage].dir;
+  languageChoice.value = activeLanguage;
+
+  const attributes = [
+    ["data-i18n", null],
+    ["data-i18n-aria-label", "aria-label"],
+    ["data-i18n-placeholder", "placeholder"],
+    ["data-i18n-alt", "alt"],
+    ["data-i18n-content", "content"]
+  ];
+  for (const [source, target] of attributes) {
+    document.querySelectorAll("[" + source + "]").forEach((element) => {
+      const text = t(element.getAttribute(source));
+      if (target) element.setAttribute(target, text);
+      else element.textContent = text;
+    });
+  }
+  updatePreferenceLabels();
+  updateQuote();
+  languageChoice.disabled = false;
+  if (save) savePreference("gowithkite-language", activeLanguage);
+}
+
+function setPreference(className, active) {
+  document.documentElement.classList.toggle(className, active);
+  // Retain these keys so returning visitors keep their existing settings.
+  savePreference("accessgo-" + className, String(active));
+  updatePreferenceLabels();
+}
+
+function addMessage(text, sender, translationKey) {
+  const message = document.createElement("div");
+  message.className = "message " + (sender === "user" ? "user-message" : "bot-message");
+  message.dir = "auto";
+  message.textContent = text;
+  if (translationKey) message.setAttribute("data-i18n", translationKey);
+  chatLog.appendChild(message);
+  chatLog.scrollTop = chatLog.scrollHeight;
+}
+
+function replyFor(text) {
+  const normal = text.toLowerCase().normalize("NFD").replace(/\p{Diacritic}/gu, "");
+  const replies = [
+    ["replyCosts", ["cost", "fee", "price", "precio", "coste", "tarifa", "prix", "frais", "cout", "מחיר", "עלות", "עלויות", "עמלה"]],
+    ["replyDelivery", ["deliver", "collect", "envio", "entrega", "recog", "livraison", "livrer", "retrait", "משלוח", "איסוף"]],
+    ["replyBsl", ["bsl", "sign", "signe", "sena", "סימנים"]],
+    ["replyRate", ["rate", "euro", "dollar", "cambio", "taux", "change", "שער", "אירו", "יורו", "דולר"]]
+  ];
+  for (const [key, words] of replies) {
+    if (words.some((word) => normal.includes(word))) return key;
+  }
+  return "replyDefault";
 }
 
 amountInput.addEventListener("input", updateQuote);
 currencySelect.addEventListener("change", updateQuote);
+languageChoice.addEventListener("change", () => applyLanguage(languageChoice.value));
 
 document.querySelectorAll('input[name="delivery"]').forEach((radio) => {
   radio.addEventListener("change", () => {
@@ -61,10 +175,7 @@ document.querySelectorAll('input[name="delivery"]').forEach((radio) => {
 reviewButton.addEventListener("click", () => {
   const quote = getQuote();
   if (!quote.valid) return;
-  document.querySelector("#modal-pay").textContent = formatGBP(quote.amount);
-  document.querySelector("#modal-receive").textContent = formatForeign(quote.received, quote.currency);
-  document.querySelector("#modal-delivery").textContent = quote.delivery === "home" ? "Home delivery" : "Collection";
-  document.querySelector("#modal-total").textContent = formatGBP(quote.amount + quote.fee);
+  updateReview(quote);
   document.querySelector("#review-modal").showModal();
 });
 
@@ -78,80 +189,27 @@ document.querySelectorAll("dialog").forEach((dialog) => {
   });
 });
 
-const textSizeButton = document.querySelector("#text-size");
-const contrastButton = document.querySelector("#contrast");
-
-function setPreference(className, active, button, onLabel, offLabel) {
-  document.documentElement.classList.toggle(className, active);
-  button.setAttribute("aria-pressed", String(active));
-  button.setAttribute("aria-label", active ? onLabel : offLabel);
-  localStorage.setItem(`accessgo-${className}`, String(active));
-}
-
 textSizeButton.addEventListener("click", () => {
-  const active = !document.documentElement.classList.contains("text-large");
-  setPreference("text-large", active, textSizeButton, "Return to standard text size", "Increase text size");
+  setPreference("text-large", !document.documentElement.classList.contains("text-large"));
 });
-
 contrastButton.addEventListener("click", () => {
-  const active = !document.documentElement.classList.contains("high-contrast");
-  setPreference("high-contrast", active, contrastButton, "Turn high contrast off", "Turn high contrast on");
+  setPreference("high-contrast", !document.documentElement.classList.contains("high-contrast"));
 });
-
-if (localStorage.getItem("accessgo-text-large") === "true") {
-  setPreference("text-large", true, textSizeButton, "Return to standard text size", "Increase text size");
-}
-
-if (localStorage.getItem("accessgo-high-contrast") === "true") {
-  setPreference("high-contrast", true, contrastButton, "Turn high contrast off", "Turn high contrast on");
-}
-
-const menuToggle = document.querySelector(".menu-toggle");
-const mainNav = document.querySelector("#main-nav");
 
 menuToggle.addEventListener("click", () => {
   const open = mainNav.classList.toggle("is-open");
   menuToggle.setAttribute("aria-expanded", String(open));
 });
-
 mainNav.addEventListener("click", () => {
   mainNav.classList.remove("is-open");
   menuToggle.setAttribute("aria-expanded", "false");
 });
 
-const chatLog = document.querySelector("#chat-log");
-const chatForm = document.querySelector("#chat-form");
-const chatInput = document.querySelector("#chat-input");
-
-const chatAnswers = {
-  costs: "The rate and any delivery fee are shown before review. All figures on this prototype are examples, not live prices.",
-  delivery: "Choose home delivery or collection. In this demonstration, delivery is free for orders of £500 or more and £4.99 below that amount.",
-  bsl: "Select the BSL button for information about planned signed guidance. No live BSL service is connected to this prototype.",
-  rate: "The calculator uses fixed demonstration rates. A future currency partner would provide the current rate.",
-  default: "I can explain the example costs, delivery choices, accessibility controls or planned BSL support."
-};
-
-function addMessage(text, sender) {
-  const message = document.createElement("div");
-  message.className = `message ${sender === "user" ? "user-message" : "bot-message"}`;
-  message.textContent = text;
-  chatLog.appendChild(message);
-  chatLog.scrollTop = chatLog.scrollHeight;
-}
-
-function replyFor(text) {
-  const normal = text.toLowerCase();
-  if (normal.includes("cost") || normal.includes("fee") || normal.includes("price")) return chatAnswers.costs;
-  if (normal.includes("deliver") || normal.includes("collect")) return chatAnswers.delivery;
-  if (normal.includes("bsl") || normal.includes("sign")) return chatAnswers.bsl;
-  if (normal.includes("rate") || normal.includes("euro") || normal.includes("dollar")) return chatAnswers.rate;
-  return chatAnswers.default;
-}
-
 document.querySelectorAll("[data-chat-answer]").forEach((button) => {
   button.addEventListener("click", () => {
-    addMessage(button.textContent.trim(), "user");
-    window.setTimeout(() => addMessage(chatAnswers[button.dataset.chatAnswer], "bot"), 250);
+    addMessage(button.textContent.trim(), "user", button.getAttribute("data-i18n"));
+    const key = button.dataset.chatAnswer === "costs" ? "replyCosts" : "replyDelivery";
+    window.setTimeout(() => addMessage(t(key), "bot", key), 250);
   });
 });
 
@@ -161,7 +219,13 @@ chatForm.addEventListener("submit", (event) => {
   if (!question) return;
   addMessage(question, "user");
   chatInput.value = "";
-  window.setTimeout(() => addMessage(replyFor(question), "bot"), 250);
+  const key = replyFor(question);
+  window.setTimeout(() => addMessage(t(key), "bot", key), 250);
 });
 
-updateQuote();
+for (const preference of ["text-large", "high-contrast"]) {
+  if (readPreference("accessgo-" + preference) === "true") {
+    document.documentElement.classList.add(preference);
+  }
+}
+applyLanguage(readPreference("gowithkite-language") || "en-GB", false);

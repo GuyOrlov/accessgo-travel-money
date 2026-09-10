@@ -35,3 +35,11 @@ The requested domain is `gowithkite.com`. Registration, ownership and connection
 ## Font licence
 
 Atkinson Hyperlegible Next is distributed under the SIL Open Font License 1.1. See `font-license.txt`. The unmodified font is from the [Google Fonts repository](https://github.com/google/fonts/tree/main/ofl/atkinsonhyperlegiblenext).
+
+## Language and plain English
+
+UK English is the default. The globe menu also offers Spanish, French and Hebrew. Interface text, screen-reader labels, quote messages, help windows and preset chat replies use the selected language.
+
+Hebrew uses right-to-left page layout. Currency codes and the GBP amount input remain easy to read. The language choice is saved in the visitor's browser under `gowithkite-language`; text-size and contrast settings keep their existing keys. All controls continue to work when browser storage is blocked.
+
+`languages.js` contains the four local dictionaries. There is no third-party translation widget or location tracking. Changing language does not change the currencies offered, the illustrative rates, the UK nature of BSL support, or the prototype's no-payment status.

@@ -6,82 +6,99 @@
     <meta name="theme-color" content="#2457E6" />
     <meta
       name="description"
-      content="Go With Kite — Travel lighter. Go further. Travel money, your way. Clear prices, simple ordering and support that works for you."
+      data-i18n-content="pageDescription"
+      content="Go With Kite. Travel money, your way. Clear prices, simple steps and help that works for you."
     />
-    <title>Go With Kite — Travel lighter. Go further.</title>
+    <title data-i18n="pageTitle">Go With Kite — Travel lighter. Go further.</title>
     <link rel="icon" href="favicon.svg" type="image/svg+xml" />
     <link rel="preload" href="atkinson-hyperlegible-next.ttf" as="font" type="font/ttf" crossorigin />
-    <link rel="stylesheet" href="styles.css" />
-    <script src="app.js" defer></script>
+    <link rel="stylesheet" href="styles.css?v=20260910-languages" />
+    <script src="languages.js?v=20260910-languages" defer></script>
+    <script src="app.js?v=20260910-languages" defer></script>
   </head>
   <body>
-    <a class="skip-link" href="#quote">Skip to travel money quote</a>
+    <a class="skip-link" href="#quote" data-i18n="skipLink">Skip to the travel money quote</a>
 
     <div class="prototype-banner" role="note">
-      <strong>Concept website</strong>
-      <span>Rates are illustrative and sponsorship is not confirmed.</span>
+      <strong data-i18n="demoWebsite">Demo website</strong>
+      <span data-i18n="demoBanner">Example prices only. No payments. Sponsorship is not confirmed.</span>
     </div>
 
     <header class="site-header">
-      <a class="brand" href="#top" aria-label="Go With Kite Travel Money home">
+      <a class="brand" href="#top" data-i18n-aria-label="brandHome" aria-label="Go With Kite Travel Money home">
         <span class="brand-main"><span class="brand-prefix">GO<br />WITH</span>KITE</span>
-        <span class="brand-sub">Travel Money</span>
+        <span class="brand-sub" data-i18n="travelMoney">Travel money</span>
       </a>
 
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav">
         <span aria-hidden="true">☰</span>
-        <span>Menu</span>
+        <span data-i18n="menu">Menu</span>
       </button>
 
-      <nav id="main-nav" class="main-nav" aria-label="Main navigation">
-        <a href="#quote">Buy currency</a>
-        <a href="#how-it-works">How it works</a>
-        <a href="#help">Help</a>
+      <nav id="main-nav" class="main-nav" data-i18n-aria-label="mainNavigation" aria-label="Main menu">
+        <a href="#quote" data-i18n="buyMoney">Buy travel money</a>
+        <a href="#how-it-works" data-i18n="howItWorks">How it works</a>
+        <a href="#help" data-i18n="help">Help</a>
       </nav>
 
-      <div class="access-tools" aria-label="Accessibility tools">
-        <button id="text-size" class="tool-button" type="button" aria-label="Increase text size" aria-pressed="false">
+      <label class="language-picker" for="site-language" dir="ltr">
+        <svg class="language-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true" focusable="false">
+          <circle cx="12" cy="12" r="9"></circle>
+          <ellipse cx="12" cy="12" rx="4" ry="9"></ellipse>
+          <path d="M3 12h18M5 6h14M5 18h14"></path>
+        </svg>
+        <span class="sr-only" data-i18n="languageLabel">Choose a language</span>
+        <select id="site-language" disabled>
+          <option value="en-GB" lang="en-GB">English (UK)</option>
+          <option value="es-ES" lang="es">Español</option>
+          <option value="fr-FR" lang="fr">Français</option>
+          <option value="he-IL" lang="he" dir="rtl">עברית</option>
+        </select>
+      </label>
+
+      <div class="access-tools" data-i18n-aria-label="accessTools" aria-label="Language and accessibility tools">
+        <button id="text-size" class="tool-button" type="button" aria-label="Make text bigger" aria-pressed="false">
           <strong>A+</strong>
         </button>
         <button id="contrast" class="tool-button" type="button" aria-label="Turn high contrast on" aria-pressed="false">
           <span class="contrast-icon" aria-hidden="true"></span>
-          <span>Contrast</span>
+          <span data-i18n="contrast">Contrast</span>
         </button>
-        <button class="tool-button" type="button" data-open-modal="bsl-modal">
+        <button class="tool-button" type="button" data-open-modal="bsl-modal" data-i18n-aria-label="bslHelp" aria-label="BSL help">
           <span aria-hidden="true">🤟</span>
           <span>BSL</span>
         </button>
       </div>
 
-      <a class="header-cta" href="#quote">Plan a brighter trip <span aria-hidden="true">→</span></a>
+      <a class="header-cta" href="#quote"><span data-i18n="getQuote">Get a quote</span> <span class="direction-arrow" aria-hidden="true">→</span></a>
     </header>
 
     <main id="top">
-      <section class="product-grid" aria-label="Go With Kite travel money service">
+      <section class="product-grid" data-i18n-aria-label="serviceLabel" aria-label="Go With Kite travel money">
         <section id="quote" class="card quote-card" aria-labelledby="quote-heading">
           <div class="card-heading-row">
             <div>
-              <p class="section-label">Accessible online quote</p>
-              <h1 id="quote-heading">Buy travel money</h1>
+              <p class="section-label" data-i18n="quoteLabel">Get an example price</p>
+              <h1 id="quote-heading" data-i18n="buyMoney">Buy travel money</h1>
             </div>
-            <span class="demo-pill">Demo</span>
+            <span class="demo-pill" data-i18n="demo">Demo</span>
           </div>
 
           <div class="field-group">
-            <label for="pay-amount">You pay</label>
-            <div class="money-field">
+            <label for="pay-amount" data-i18n="youPay">You pay</label>
+            <div class="money-field" dir="ltr">
               <span aria-hidden="true">£</span>
-              <input id="pay-amount" type="number" min="75" max="2500" step="10" value="500" inputmode="decimal" />
+              <input aria-describedby="amount-error" id="pay-amount" type="number" min="75" max="2500" step="0.01" value="500" inputmode="decimal" />
               <span class="currency-code"><span aria-hidden="true">🇬🇧</span> GBP</span>
             </div>
-            <p id="amount-error" class="field-error" role="alert" hidden>Please enter between £75 and £2,500.</p>
+            <p id="amount-error" class="field-error" role="alert" hidden data-i18n="amountError">Enter an amount from £75 to £2,500.</p>
           </div>
 
           <div class="field-group">
-            <label for="receive-currency">You receive</label>
-            <div class="money-field receive-field">
+            <label for="receive-currency" data-i18n="youReceive">You receive</label>
+            <div class="money-field receive-field" dir="ltr">
               <output id="receive-amount" for="pay-amount receive-currency">€575.00</output>
-              <select id="receive-currency" aria-label="Currency to receive">
+              <select id="receive-currency" data-i18n-aria-label="receiveCurrency" aria-label="Choose your currency">
                 <option value="EUR">🇪🇺 EUR</option>
                 <option value="USD">🇺🇸 USD</option>
                 <option value="CAD">🇨🇦 CAD</option>
@@ -93,40 +110,40 @@
           </div>
 
           <fieldset class="delivery-fieldset">
-            <legend>Delivery method</legend>
+            <legend data-i18n="deliveryMethod">How to get your cash</legend>
             <div class="delivery-options">
               <label class="delivery-option is-selected">
                 <input type="radio" name="delivery" value="home" checked />
                 <span class="radio-mark" aria-hidden="true"></span>
                 <span class="delivery-icon" aria-hidden="true">⌂</span>
-                <span><strong>Home delivery</strong><small>Delivered to your door</small></span>
+                <span><strong data-i18n="homeDelivery">Home delivery</strong><small data-i18n="homeDeliveryNote">Sent to your door</small></span>
               </label>
               <label class="delivery-option">
                 <input type="radio" name="delivery" value="collection" />
                 <span class="radio-mark" aria-hidden="true"></span>
                 <span class="delivery-icon" aria-hidden="true">▥</span>
-                <span><strong>Collection</strong><small>Collect from a local branch</small></span>
+                <span><strong data-i18n="collection">Collection</strong><small data-i18n="collectionNote">Collect from a branch</small></span>
               </label>
             </div>
           </fieldset>
 
           <dl class="quote-summary">
-            <div><dt>Delivery</dt><dd id="delivery-fee">£0.00</dd></div>
-            <div class="summary-total"><dt>Total</dt><dd id="total-pay">£500.00</dd></div>
+            <div><dt data-i18n="delivery">Delivery</dt><dd id="delivery-fee">£0.00</dd></div>
+            <div class="summary-total"><dt data-i18n="total">Total</dt><dd id="total-pay">£500.00</dd></div>
           </dl>
 
-          <button id="review-order" class="primary-button" type="button">Review example order <span aria-hidden="true">→</span></button>
-          <p class="quote-note">Illustrative quote — not a live rate and no payment will be taken.</p>
+          <button id="review-order" class="primary-button" type="button"><span data-i18n="reviewOrder">Check example order</span> <span class="direction-arrow" aria-hidden="true">→</span></button>
+          <p class="quote-note" data-i18n="quoteNote">Example prices only. You cannot pay on this website.</p>
         </section>
 
         <article class="hero-panel">
           <div class="hero-copy">
-            <p class="eyebrow">Travel money, your way</p>
-            <h2>Travel lighter.<br /><span>Go further.</span></h2>
-            <p class="hero-intro">Clear prices. Simple ordering. Support that works for you.</p>
+            <p class="eyebrow" data-i18n="heroEyebrow">Travel money, your way</p>
+            <h2><span data-i18n="heroFirst">Travel lighter.</span><br /><span class="hero-accent" data-i18n="heroSecond">Go further.</span></h2>
+            <p class="hero-intro" data-i18n="heroIntro">Clear prices. Simple steps. Help that works for you.</p>
           </div>
           <img class="hero-image" src="hero-travellers.jpg"
-            alt="Three friends enjoying a sunny coastal holiday, including a woman using a wheelchair"
+            data-i18n-alt="photoAlt" alt="Three friends on a sunny seaside holiday, including a woman using a wheelchair"
             width="654" height="337" />
         </article>
 
@@ -135,173 +152,173 @@
             <div class="chat-header">
               <span class="round-icon robot-icon" aria-hidden="true">☻</span>
               <div>
-                <h2 id="chat-heading">Your AI travel helper</h2>
-                <p>Demo answers tailored to common questions.</p>
+                <h2 id="chat-heading" data-i18n="chatHeading">Your travel helper</h2>
+                <p data-i18n="chatIntro">Ask about costs or delivery.</p>
               </div>
             </div>
 
-            <div id="chat-log" class="chat-log" role="log" aria-live="polite" aria-label="Travel helper conversation">
-              <div class="message user-message">I’m going to Spain. Can you help me buy euros?</div>
-              <div class="message bot-message">Of course. Enter your budget and I’ll guide you through the next steps.</div>
+            <div id="chat-log" class="chat-log" role="log" aria-live="polite" data-i18n-aria-label="chatLabel" aria-label="Travel helper messages">
+              <div class="message user-message" data-i18n="chatExampleQuestion">I’m going to Spain. How do I buy euros?</div>
+              <div class="message bot-message" data-i18n="chatExampleAnswer">Enter how much you want to spend, then choose EUR for euros.</div>
             </div>
 
-            <div class="quick-actions" aria-label="Suggested questions">
-              <button type="button" data-chat-answer="costs">Explain the costs</button>
-              <button type="button" data-chat-answer="delivery">Help with delivery</button>
+            <div class="quick-actions" data-i18n-aria-label="suggestedQuestions" aria-label="Questions you can try">
+              <button type="button" data-chat-answer="costs" data-i18n="explainCosts">Explain the costs</button>
+              <button type="button" data-chat-answer="delivery" data-i18n="helpDelivery">Help with delivery</button>
             </div>
 
             <form id="chat-form" class="chat-form">
-              <label class="sr-only" for="chat-input">Ask the travel helper a question</label>
-              <input id="chat-input" type="text" autocomplete="off" placeholder="Type your message…" maxlength="180" />
-              <button type="submit" aria-label="Send message">➤</button>
+              <label class="sr-only" for="chat-input" data-i18n="chatInputLabel">Ask the travel helper a question</label>
+              <input id="chat-input" type="text" dir="auto" autocomplete="off" data-i18n-placeholder="chatPlaceholder" placeholder="Type your message…" maxlength="180" />
+              <button type="submit" data-i18n-aria-label="sendMessage" aria-label="Send message"><span class="direction-arrow" aria-hidden="true">➤</span></button>
             </form>
-            <p class="chat-disclaimer">This demonstration assistant does not provide live rates or financial advice.</p>
+            <p class="chat-disclaimer" data-i18n="chatNote">Demo replies only. No live rates.</p>
           </section>
 
           <section id="help" class="card human-help" aria-labelledby="human-help-heading">
-            <h2 id="human-help-heading">Need a human? We’re here too.</h2>
+            <h2 id="human-help-heading" data-i18n="humanHelp">Need more help?</h2>
             <div class="help-options">
               <button class="help-option" type="button" data-open-modal="support-modal">
                 <span class="round-icon" aria-hidden="true">•••</span>
-                <span><strong>Text support</strong><small>Help that works for you</small></span>
+                <span><strong data-i18n="textSupport">Text support</strong><small data-i18n="textSupportNote">Help by message</small></span>
               </button>
               <button class="help-option" type="button" data-open-modal="bsl-modal">
                 <span class="round-icon" aria-hidden="true">🤟</span>
-                <span><strong>BSL guidance</strong><small>Information in British Sign Language</small></span>
+                <span><strong data-i18n="bslHelp">BSL help</strong><small data-i18n="bslHelpNote">British Sign Language</small></span>
               </button>
             </div>
           </section>
         </div>
       </section>
 
-      <section class="benefits" aria-label="Go With Kite benefits">
+      <section class="benefits" data-i18n-aria-label="benefitsLabel" aria-label="Go With Kite benefits">
         <article>
           <span class="benefit-icon yellow" aria-hidden="true">£</span>
-          <div><h2>Clear total prices</h2><p>No hidden fees. See what you would pay.</p></div>
+          <div><h2 data-i18n="clearPrices">Clear prices</h2><p data-i18n="clearPricesNote">See all example costs before you decide.</p></div>
         </article>
         <article>
           <span class="benefit-icon blue" aria-hidden="true">♿</span>
-          <div><h2>Accessible ordering</h2><p>Designed for different needs at every step.</p></div>
+          <div><h2 data-i18n="easyOrdering">Simple ordering</h2><p data-i18n="easyOrderingNote">Easy steps from quote to review.</p></div>
         </article>
         <article>
           <span class="benefit-icon yellow" aria-hidden="true">●●</span>
-          <div><h2>Support your way</h2><p>Get help by text, BSL or chat.</p></div>
+          <div><h2 data-i18n="supportYourWay">Support your way</h2><p data-i18n="supportYourWayNote">Text, BSL and chat options.</p></div>
         </article>
       </section>
 
       <section class="inclusion-section" aria-labelledby="inclusion-heading">
         <div class="section-heading">
-          <p class="eyebrow">Why accessibility matters</p>
-          <h2 id="inclusion-heading">Different needs. Equal possibilities.</h2>
-          <p>Everyone deserves clear information, useful support and more choice when planning a holiday.</p>
+          <p class="eyebrow" data-i18n="accessMatters">Why access matters</p>
+          <h2 id="inclusion-heading" data-i18n="inclusionHeading">Different needs. More choice.</h2>
+          <p data-i18n="inclusionIntro">Everyone deserves clear information and useful help when planning a holiday.</p>
         </div>
         <div class="inclusion-stats">
           <article class="stat-card">
-            <h3><span class="stat-value">430 million</span><span class="stat-caption">people worldwide need rehabilitation for disabling hearing loss</span></h3>
-            <p>This is a hearing-health estimate; it does not count sign-language users specifically.</p>
-            <a href="https://www.who.int/news-room/fact-sheets/detail/deafness-and-hearing-loss">Source: WHO hearing loss fact sheet (2026)</a>
+            <h3><span class="stat-value" data-i18n="hearingValue">430 million</span><span class="stat-caption" data-i18n="hearingCaption">people worldwide need care and support for disabling hearing loss</span></h3>
+            <p data-i18n="hearingNote">WHO estimates how many people need hearing rehabilitation. This is not a count of sign-language users.</p>
+            <a href="https://www.who.int/news-room/fact-sheets/detail/deafness-and-hearing-loss" data-i18n="hearingSource">Source: WHO hearing loss facts (2026)</a>
           </article>
           <article class="stat-card">
-            <h3><span class="stat-value">1.3 billion</span><span class="stat-caption">people worldwide experience significant disability</span></h3>
-            <p>About 1 in 6 people globally, or 16% of the world’s population.</p>
-            <a href="https://www.who.int/news-room/fact-sheets/detail/disability-and-health">Source: WHO disability fact sheet (2023)</a>
+            <h3><span class="stat-value" data-i18n="disabilityValue">1.3 billion</span><span class="stat-caption" data-i18n="disabilityCaption">people worldwide live with a significant disability</span></h3>
+            <p data-i18n="disabilityNote">About 1 in 6 people, or 16% of the world’s population.</p>
+            <a href="https://www.who.int/news-room/fact-sheets/detail/disability-and-health" data-i18n="disabilitySource">Source: WHO disability facts (2023)</a>
           </article>
         </div>
-        <p class="data-note">Global estimates, not Go With Kite customer numbers. These groups overlap and should not be added together. Sources checked 10 September 2026.</p>
+        <p class="data-note" data-i18n="dataNote">These are world estimates, not customer numbers. Some people are in both groups, so do not add the figures together. Sources checked 10 September 2026.</p>
       </section>
 
       <section id="how-it-works" class="how-section">
         <div class="section-heading">
-          <p class="eyebrow">Simple by design</p>
-          <h2>How Go With Kite would work</h2>
-          <p>This prototype demonstrates the accessible journey. A confirmed currency partner would provide the live rate, payment and fulfilment.</p>
+          <p class="eyebrow" data-i18n="simpleByDesign">Simple steps</p>
+          <h2 data-i18n="howItWorks">How it works</h2>
+          <p data-i18n="howIntro">Try this demo. A future currency partner would handle live prices, payments and delivery.</p>
         </div>
         <ol class="steps">
-          <li><span>1</span><div><h3>Choose your money</h3><p>Enter your budget and select the currency you need.</p></div></li>
-          <li><span>2</span><div><h3>Get support your way</h3><p>Use clear text, accessibility controls, BSL guidance or chat.</p></div></li>
-          <li><span>3</span><div><h3>Order securely</h3><p>After partnership approval, checkout would be handled by the authorised currency provider.</p></div></li>
+          <li><span>1</span><div><h3 data-i18n="stepOne">Choose your cash</h3><p data-i18n="stepOneNote">Enter how much you want to spend and choose a currency.</p></div></li>
+          <li><span>2</span><div><h3 data-i18n="stepTwo">Ask for help</h3><p data-i18n="stepTwoNote">Try the demo chat or read about planned text and BSL support.</p></div></li>
+          <li><span>3</span><div><h3 data-i18n="stepThree">Check the total</h3><p data-i18n="stepThreeNote">Review the example costs. You cannot pay in this demo.</p></div></li>
         </ol>
       </section>
       <section class="values-section" aria-labelledby="values-heading">
         <div class="section-heading">
-          <p class="eyebrow">What guides Go With Kite</p>
-          <h2 id="values-heading">Built around your independence.</h2>
+          <p class="eyebrow" data-i18n="valuesEyebrow">What matters to us</p>
+          <h2 id="values-heading" data-i18n="valuesHeading">You’re in control.</h2>
         </div>
         <dl class="values-grid">
-          <div><dt>Independence</dt><dd>You stay in control of your money and your choices.</dd></div>
-          <div><dt>Clarity</dt><dd>Plain language, understandable rates and visible total costs.</dd></div>
-          <div><dt>Choice</dt><dd>Our aim is support that respects how you communicate.</dd></div>
-          <div><dt>Inclusion</dt><dd>Our commitment is to develop and test with people with different access needs.</dd></div>
+          <div><dt data-i18n="independence">Independence</dt><dd data-i18n="independenceNote">You choose what works for you.</dd></div>
+          <div><dt data-i18n="clarity">Clarity</dt><dd data-i18n="clarityNote">Plain words and clear prices.</dd></div>
+          <div><dt data-i18n="choice">Choice</dt><dd data-i18n="choiceNote">Help that suits how you communicate.</dd></div>
+          <div><dt data-i18n="inclusion">Inclusion</dt><dd data-i18n="inclusionValueNote">We aim to build and test with people who have different needs.</dd></div>
         </dl>
       </section>
     </main>
 
     <footer class="site-footer">
       <div class="footer-brand">
-        <a class="brand brand-inverse" href="#top" aria-label="Go With Kite Travel Money home">
+        <a class="brand brand-inverse" href="#top" data-i18n-aria-label="brandHome" aria-label="Go With Kite Travel Money home">
           <span class="brand-main"><span class="brand-prefix">GO<br />WITH</span>KITE</span>
-          <span class="brand-sub">Travel Money</span>
+          <span class="brand-sub" data-i18n="travelMoney">Travel money</span>
         </a>
         <span class="footer-divider" aria-hidden="true"></span>
-        <p>Travel lighter. Go further.</p>
+        <p data-i18n="tagline">Travel lighter. Go further.</p>
       </div>
 
-      <div class="sponsor-example" aria-label="Example Travelex sponsorship, not confirmed">
-        <span class="sponsor-label">Sponsored by</span>
+      <div class="sponsor-example" data-i18n-aria-label="sponsorAria" aria-label="Example Travelex sponsorship. Not confirmed.">
+        <span class="sponsor-label" data-i18n="sponsoredBy">Sponsored by</span>
         <span class="travelex-lockup">
           <span class="travelex-mark" aria-hidden="true"><i></i><i></i></span>
           <strong>travelex</strong>
         </span>
-        <span class="sponsor-warning">Example only — sponsorship not confirmed.</span>
+        <span class="sponsor-warning" data-i18n="sponsorWarning">Example only. Sponsorship is not confirmed.</span>
       </div>
     </footer>
 
     <dialog id="review-modal" class="modal">
       <form method="dialog" class="modal-card">
-        <button class="modal-close" value="close" aria-label="Close order summary">×</button>
+        <button class="modal-close" value="close" data-i18n-aria-label="closeOrder" aria-label="Close order summary">×</button>
         <span class="modal-icon" aria-hidden="true">✓</span>
-        <p class="section-label">Example order</p>
-        <h2>Your travel money summary</h2>
+        <p class="section-label" data-i18n="exampleOrder">Example order</p>
+        <h2 data-i18n="summaryHeading">Your example order</h2>
         <dl class="modal-summary">
-          <div><dt>You pay</dt><dd id="modal-pay">£500.00</dd></div>
-          <div><dt>You receive</dt><dd id="modal-receive">€575.00</dd></div>
-          <div><dt>Method</dt><dd id="modal-delivery">Home delivery</dd></div>
-          <div><dt>Total</dt><dd id="modal-total">£500.00</dd></div>
+          <div><dt data-i18n="youPay">You pay</dt><dd id="modal-pay">£500.00</dd></div>
+          <div><dt data-i18n="youReceive">You receive</dt><dd id="modal-receive">€575.00</dd></div>
+          <div><dt data-i18n="method">Delivery choice</dt><dd id="modal-delivery" data-i18n="homeDelivery">Home delivery</dd></div>
+          <div><dt data-i18n="total">Total</dt><dd id="modal-total">£500.00</dd></div>
         </dl>
         <div class="info-box">
-          <strong>This is a working demonstration.</strong>
-          <p>No payment can be made. After a formal partnership, this step could connect securely to the currency provider’s checkout.</p>
+          <strong data-i18n="demoOnly">This is a demo.</strong>
+          <p data-i18n="noPayment">You cannot pay or place an order. A future currency partner could provide a secure checkout.</p>
         </div>
-        <button class="primary-button" value="close">Return to quote</button>
+        <button class="primary-button" value="close" data-i18n="returnQuote">Back to your quote</button>
       </form>
     </dialog>
 
     <dialog id="bsl-modal" class="modal">
       <form method="dialog" class="modal-card">
-        <button class="modal-close" value="close" aria-label="Close BSL information">×</button>
+        <button class="modal-close" value="close" data-i18n-aria-label="closeBsl" aria-label="Close BSL information">×</button>
         <span class="modal-icon" aria-hidden="true">🤟</span>
-        <p class="section-label">British Sign Language</p>
-        <h2>BSL guidance is planned</h2>
-        <p>Go With Kite is designed to include short BSL videos explaining rates, delivery and ordering. This prototype does not yet include a live interpreter or signed video.</p>
-        <div class="video-placeholder" role="img" aria-label="Placeholder for a future BSL guidance video">
+        <p class="section-label" data-i18n="bslFull">British Sign Language</p>
+        <h2 data-i18n="bslPlanned">BSL help is planned</h2>
+        <p data-i18n="bslBody">We plan to add short BSL videos about prices, delivery and ordering. This demo has no signed videos or live interpreter.</p>
+        <div class="video-placeholder" role="img" data-i18n-aria-label="bslPlaceholder" aria-label="Space for a future BSL help video">
           <span aria-hidden="true">▶</span>
-          <strong>Future BSL video</strong>
+          <strong data-i18n="bslVideo">BSL video coming later</strong>
         </div>
-        <button class="primary-button" value="close">Close</button>
+        <button class="primary-button" value="close" data-i18n="close">Close</button>
       </form>
     </dialog>
 
     <dialog id="support-modal" class="modal">
       <form method="dialog" class="modal-card">
-        <button class="modal-close" value="close" aria-label="Close support information">×</button>
+        <button class="modal-close" value="close" data-i18n-aria-label="closeSupport" aria-label="Close support information">×</button>
         <span class="modal-icon" aria-hidden="true">•••</span>
-        <p class="section-label">Text support</p>
-        <h2>Human support coming with launch</h2>
-        <p>This demonstration does not connect to a support team. A live service could offer web chat, SMS or WhatsApp-style text support without requiring a phone call.</p>
-        <button class="primary-button" value="close">Close</button>
+        <p class="section-label" data-i18n="textSupport">Text support</p>
+        <h2 data-i18n="supportPlanned">Text support is planned</h2>
+        <p data-i18n="supportBody">This demo is not linked to a support team. A future service could offer help by message without a phone call.</p>
+        <button class="primary-button" value="close" data-i18n="close">Close</button>
       </form>
     </dialog>
 
-    <noscript><p class="noscript">JavaScript is needed for the quote calculator and chat demonstration.</p></noscript>
+    <noscript><p class="noscript" data-i18n="noScript">Turn on JavaScript in your browser to use the quote, language choice and demo chat.</p></noscript>
   </body>
 </html>
