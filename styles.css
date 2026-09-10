@@ -654,3 +654,9 @@ html.high-contrast .delivery-option.is-selected { border-width: 3px; }
   .bottom-trust, .footer-directory { padding: 1.5rem 1rem; }
   .payment-badges { gap: 0.5rem; }
 }
+
+/* Barrier EX wordmark, sized for narrow mobile headers. */
+.brand-main.barrier-wordmark { font-size: clamp(1.65rem, 3vw, 2.2rem); letter-spacing: -0.035em; gap: 0.3rem; }
+.brand-ex { color: var(--blue); letter-spacing: -0.04em; }
+.brand-inverse .brand-ex { color: var(--yellow); }
+.proposed-domain { font-size: 0.875rem; margin-top: 0.25rem; }

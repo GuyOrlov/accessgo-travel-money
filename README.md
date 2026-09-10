@@ -1,4 +1,4 @@
-# Go With Kite
+# Barrier EX
 
 **Travel lighter. Go further.**
 
@@ -30,7 +30,7 @@ Rates and delivery charges are illustrative. The website cannot accept payments.
 
 WHO population estimates are linked on the page. They are not customer numbers, and the groups overlap.
 
-The requested domain is `gowithkite.com`. Registration, ownership and connection must be confirmed before changing the live website address. No domain has been purchased or changed as part of this rebrand.
+The requested domain is `barrierex.com`. Registration, ownership and connection must be confirmed before changing the live website address. No domain has been purchased or changed as part of this rebrand.
 
 ## Font licence
 
