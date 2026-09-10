@@ -66,20 +66,15 @@ function t(key, values = {}) {
 function getQuote() {
   const amount = Number(amountInput.value);
   const currency = currencySelect.value;
-  const valid = Number.isFinite(amount) && amount >= 75 && amount <= 2500;
+  const valid = Number.isFinite(amount) && amount >= 75 && amount <= 2500
+    && Math.abs(amount * 100 - Math.round(amount * 100)) < 0.000001;
   const delivery = document.querySelector('input[name="delivery"]:checked').value;
   const fee = delivery === "home" && amount < 500 ? 4.99 : 0;
-  return { amount, currency, valid, delivery, fee, received: valid ? amount * rates[currency].rate : 0 };
-}
-
-function updateReview(quote) {
-  document.querySelector("#modal-pay").textContent = quote.valid ? formatGBP(quote.amount) : "—";
-  document.querySelector("#modal-receive").textContent = quote.valid ? formatForeign(quote.received, quote.currency) : "—";
-  document.querySelector("#modal-delivery").textContent = t(quote.delivery === "home" ? "homeDelivery" : "collection");
-  document.querySelector("#modal-total").textContent = quote.valid ? formatGBP(quote.amount + quote.fee) : "—";
+  return { amount, currency, valid, delivery, fee, received: valid ? (amount - fee) * rates[currency].rate : 0 };
 }
 
 function updateQuote() {
+  if (!amountInput) return;
   const quote = getQuote();
   amountError.hidden = quote.valid;
   amountError.textContent = t("amountError");
@@ -90,8 +85,7 @@ function updateQuote() {
   receiveOutput.textContent = quote.valid ? formatForeign(quote.received, quote.currency) : "—";
   rateCopy.textContent = t("exampleRate", { rate: formatForeign(rates[quote.currency].rate, quote.currency) });
   deliveryFeeOutput.textContent = quote.valid ? formatGBP(quote.fee) : "—";
-  totalOutput.textContent = quote.valid ? formatGBP(quote.amount + quote.fee) : "—";
-  updateReview(quote);
+  totalOutput.textContent = quote.valid ? formatGBP(quote.amount) : "—";
 }
 
 function updatePreferenceLabels() {
@@ -125,6 +119,7 @@ function applyLanguage(locale, save = true) {
   }
   updatePreferenceLabels();
   updateQuote();
+  if (window.renderResults) window.renderResults();
   languageChoice.disabled = false;
   if (save) savePreference("gowithkite-language", activeLanguage);
 }
@@ -160,8 +155,8 @@ function replyFor(text) {
   return "replyDefault";
 }
 
-amountInput.addEventListener("input", updateQuote);
-currencySelect.addEventListener("change", updateQuote);
+amountInput?.addEventListener("input", updateQuote);
+currencySelect?.addEventListener("change", updateQuote);
 languageChoice.addEventListener("change", () => applyLanguage(languageChoice.value));
 
 document.querySelectorAll('input[name="delivery"]').forEach((radio) => {
@@ -172,11 +167,11 @@ document.querySelectorAll('input[name="delivery"]').forEach((radio) => {
   });
 });
 
-reviewButton.addEventListener("click", () => {
+reviewButton?.addEventListener("click", () => {
   const quote = getQuote();
   if (!quote.valid) return;
-  updateReview(quote);
-  document.querySelector("#review-modal").showModal();
+  const params = new URLSearchParams({ amount: quote.amount.toFixed(2), currency: quote.currency, delivery: quote.delivery, lang: activeLanguage });
+  window.location.href = "results.html?" + params.toString();
 });
 
 document.querySelectorAll("[data-open-modal]").forEach((button) => {
@@ -213,7 +208,7 @@ document.querySelectorAll("[data-chat-answer]").forEach((button) => {
   });
 });
 
-chatForm.addEventListener("submit", (event) => {
+chatForm?.addEventListener("submit", (event) => {
   event.preventDefault();
   const question = chatInput.value.trim();
   if (!question) return;
@@ -228,4 +223,18 @@ for (const preference of ["text-large", "high-contrast"]) {
     document.documentElement.classList.add(preference);
   }
 }
-applyLanguage(readPreference("gowithkite-language") || "en-GB", false);
+const quoteParams = new URLSearchParams(window.location.search);
+if (amountInput) {
+  const restoredAmount = Number(quoteParams.get("amount"));
+  if (quoteParams.has("amount") && Number.isFinite(restoredAmount) && restoredAmount >= 75 && restoredAmount <= 2500) amountInput.value = restoredAmount.toFixed(2);
+  const restoredCurrency = quoteParams.get("currency");
+  if (Object.prototype.hasOwnProperty.call(rates, restoredCurrency)) currencySelect.value = restoredCurrency;
+  const restoredDelivery = quoteParams.get("delivery");
+  if (restoredDelivery === "home" || restoredDelivery === "collection") {
+    document.querySelectorAll('input[name="delivery"]').forEach(radio => {
+      radio.checked = radio.value === restoredDelivery;
+      radio.closest(".delivery-option").classList.toggle("is-selected", radio.checked);
+    });
+  }
+}
+applyLanguage(quoteParams.get("lang") || readPreference("gowithkite-language") || "en-GB", false);

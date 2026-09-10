@@ -47,3 +47,11 @@ Hebrew uses right-to-left page layout. Currency codes and the GBP amount input r
 ## Compact layout
 
 The photo sits directly below the main message. Cards use their content height. The repeated text/BSL support card has been removed; Help links to the travel chat, and BSL remains in the header.
+
+## Example comparisons
+
+The quote button opens `results.html` with the amount, currency, delivery choice and language in its query string. The input is the total GBP budget: fees are deducted before conversion. The homepage shows Provider A's illustrative calculation; comparison offers may use different rates and fees.
+
+The second page shows three explicitly fictional providers, fee-inclusive foreign amounts, sample ratings (not customer reviews), and fictional collection points. Offers can be sorted by amount or sample rating. Details explain the calculation; there are no purchase links, real branches, location tracking or live offers. Change your quote preserves the entered choices. All four languages, RTL, text size and contrast are supported on both pages.
+
+Foreign amounts are rounded to minor currency units for illustration; real cash denomination requirements are not modelled.

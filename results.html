@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en-GB">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#2457E6" />
+    <meta
+      name="description"
+      data-i18n-content="resultsDescription"
+      content="Compare fictional travel money offers. Demo prices and ratings only."
+    />
+    <title data-i18n="resultsTitle">Compare example offers — Go With Kite</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="preload" href="atkinson-hyperlegible-next.ttf" as="font" type="font/ttf" crossorigin />
+    <link rel="stylesheet" href="styles.css?v=20260910-results" />
+    <script src="languages.js?v=20260910-results" defer></script>
+    <script src="app.js?v=20260910-results" defer></script>
+    <script src="results.js?v=20260910-results" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#results" data-i18n="resultsSkip">Skip to comparison results</a>
+
+    <div class="prototype-banner" role="note">
+      <strong data-i18n="demoWebsite">Demo website</strong>
+      <span data-i18n="demoBanner">Example prices only. No payments. Sponsorship is not confirmed.</span>
+    </div>
+
+    <header class="site-header">
+      <a class="brand" href="index.html" data-i18n-aria-label="brandHome" aria-label="Go With Kite Travel Money home">
+        <span class="brand-main"><span class="brand-prefix">GO<br />WITH</span>KITE</span>
+        <span class="brand-sub" data-i18n="travelMoney">Travel money</span>
+      </a>
+
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav">
+        <span aria-hidden="true">☰</span>
+        <span data-i18n="menu">Menu</span>
+      </button>
+
+      <nav id="main-nav" class="main-nav" data-i18n-aria-label="mainNavigation" aria-label="Main menu">
+        <a href="index.html#quote" data-i18n="buyMoney">Buy travel money</a>
+        <a href="index.html#how-it-works" data-i18n="howItWorks">How it works</a>
+        <a href="index.html#help" data-i18n="help">Help</a>
+      </nav>
+
+      <label class="language-picker" for="site-language" dir="ltr">
+        <svg class="language-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true" focusable="false">
+          <circle cx="12" cy="12" r="9"></circle>
+          <ellipse cx="12" cy="12" rx="4" ry="9"></ellipse>
+          <path d="M3 12h18M5 6h14M5 18h14"></path>
+        </svg>
+        <span class="sr-only" data-i18n="languageLabel">Choose a language</span>
+        <select id="site-language" disabled>
+          <option value="en-GB" lang="en-GB">English (UK)</option>
+          <option value="es-ES" lang="es">Español</option>
+          <option value="fr-FR" lang="fr">Français</option>
+          <option value="he-IL" lang="he" dir="rtl">עברית</option>
+        </select>
+      </label>
+
+      <div class="access-tools" data-i18n-aria-label="accessTools" aria-label="Language and accessibility tools">
+        <button id="text-size" class="tool-button" type="button" aria-label="Make text bigger" aria-pressed="false">
+          <strong>A+</strong>
+        </button>
+        <button id="contrast" class="tool-button" type="button" aria-label="Turn high contrast on" aria-pressed="false">
+          <span class="contrast-icon" aria-hidden="true"></span>
+          <span data-i18n="contrast">Contrast</span>
+        </button>
+        <button class="tool-button" type="button" data-open-modal="bsl-modal" data-i18n-aria-label="bslHelp" aria-label="BSL help">
+          <span aria-hidden="true">🤟</span>
+          <span>BSL</span>
+        </button>
+      </div>
+
+      <a class="header-cta" href="index.html#quote"><span data-i18n="getQuote">Get a quote</span> <span class="direction-arrow" aria-hidden="true">→</span></a>
+    </header>
+
+    <main id="results" class="results-page">
+      <a id="edit-quote" class="edit-quote" href="index.html#quote" data-i18n="editQuote">Change your quote</a>
+      <p class="section-label" data-i18n="resultsEyebrow">YOUR TRAVEL MONEY · EXAMPLE RESULTS</p>
+      <h1 id="results-heading">Compare example offers</h1>
+      <p data-i18n="resultsIntro">Fees come out of your budget. Compare the final amount you receive.</p>
+      <aside class="results-notice" role="note" data-i18n="demoWarning">All providers, rates, locations and ratings below are made up. These are not live offers or customer reviews. You cannot buy through this demo.</aside>
+      <p id="results-error" class="field-error" role="alert" hidden data-i18n="invalidQuote"></p>
+      <div id="results-content" hidden>
+        <div class="results-toolbar">
+          <p id="results-count" role="status"></p>
+          <label class="sort-control" for="sort-offers">
+            <span data-i18n="sortLabel">Sort by</span>
+            <select id="sort-offers">
+              <option value="amount" data-i18n="sortAmount">Most cash</option>
+              <option value="rating" data-i18n="sortRating">Sample rating</option>
+            </select>
+          </label>
+        </div>
+        <div id="offers" class="offers" aria-labelledby="results-heading"></div>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-brand">
+        <a class="brand brand-inverse" href="index.html" data-i18n-aria-label="brandHome" aria-label="Go With Kite Travel Money home">
+          <span class="brand-main"><span class="brand-prefix">GO<br />WITH</span>KITE</span>
+          <span class="brand-sub" data-i18n="travelMoney">Travel money</span>
+        </a>
+        <span class="footer-divider" aria-hidden="true"></span>
+        <p data-i18n="tagline">Travel lighter. Go further.</p>
+      </div>
+
+      <div class="sponsor-example" data-i18n-aria-label="sponsorAria" aria-label="Example Travelex sponsorship. Not confirmed.">
+        <span class="sponsor-label" data-i18n="sponsoredBy">Sponsored by</span>
+        <span class="travelex-lockup">
+          <span class="travelex-mark" aria-hidden="true"><i></i><i></i></span>
+          <strong>travelex</strong>
+        </span>
+        <span class="sponsor-warning" data-i18n="sponsorWarning">Example only. Sponsorship is not confirmed.</span>
+      </div>
+    </footer>
+
+    <dialog id="bsl-modal" class="modal">
+      <form method="dialog" class="modal-card">
+        <button class="modal-close" value="close" data-i18n-aria-label="closeBsl" aria-label="Close BSL information">×</button>
+        <span class="modal-icon" aria-hidden="true">🤟</span>
+        <p class="section-label" data-i18n="bslFull">British Sign Language</p>
+        <h2 data-i18n="bslPlanned">BSL help is planned</h2>
+        <p data-i18n="bslBody">We plan to add short BSL videos about prices, delivery and ordering. This demo has no signed videos or live interpreter.</p>
+        <div class="video-placeholder" role="img" data-i18n-aria-label="bslPlaceholder" aria-label="Space for a future BSL help video">
+          <span aria-hidden="true">▶</span>
+          <strong data-i18n="bslVideo">BSL video coming later</strong>
+        </div>
+        <button class="primary-button" value="close" data-i18n="close">Close</button>
+      </form>
+    </dialog>
+
+
+    <noscript><p class="noscript" data-i18n="noScript">Turn on JavaScript in your browser to use the quote, language choice and demo chat.</p></noscript>
+  </body>
+</html>
