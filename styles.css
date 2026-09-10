@@ -660,3 +660,5 @@ html.high-contrast .delivery-option.is-selected { border-width: 3px; }
 .brand-ex { color: var(--blue); letter-spacing: -0.04em; }
 .brand-inverse .brand-ex { color: var(--yellow); }
 .proposed-domain { font-size: 0.875rem; margin-top: 0.25rem; }
+
+.brand-sub.brand-tagline { max-width: 15rem; font-size: 0.875rem; letter-spacing: 0; text-transform: none; line-height: 1.4; white-space: normal; }
