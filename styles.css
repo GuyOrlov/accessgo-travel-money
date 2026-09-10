@@ -202,14 +202,14 @@ html[dir="rtl"] .chat-form button { border-radius: 0.7rem 0 0 0.7rem; }
   display: grid;
   grid-template-columns: minmax(0, 1.15fr) minmax(355px, 1fr) minmax(340px, 1fr);
   gap: 1.25rem;
-  align-items: stretch;
+  align-items: start;
 }
 .product-grid > *, .card-heading-row > div { min-width: 0; }
 .hero-panel {
   grid-column: 1;
   grid-row: 1;
   container-type: inline-size;
-  min-height: 622px;
+  min-height: 0;
   border-radius: 1.25rem;
   overflow: hidden;
   display: flex;
@@ -237,10 +237,10 @@ html[dir="rtl"] .chat-form button { border-radius: 0.7rem 0 0 0.7rem; }
 .hero-panel h2 .hero-accent { color: var(--yellow); }
 .hero-intro { margin: 1.25rem 0 0; color: #edf2ff; font-size: 1.125rem; line-height: 1.6; }
 .hero-image {
-  margin-top: auto;
+  margin-top: 0;
   width: 100%;
   height: auto;
-  min-height: 280px;
+  min-height: 0;
   object-fit: cover;
   object-position: center;
   display: block;
@@ -249,7 +249,7 @@ html[dir="rtl"] .chat-form button { border-radius: 0.7rem 0 0 0.7rem; }
 .quote-card {
   grid-column: 2;
   grid-row: 1;
-  min-height: 622px;
+  min-height: 0;
   padding: clamp(1.2rem, 2vw, 1.75rem);
   display: flex;
   flex-direction: column;
@@ -353,10 +353,10 @@ html[dir="rtl"] .chat-form button { border-radius: 0.7rem 0 0 0.7rem; }
 .primary-button:disabled { opacity: 0.55; cursor: not-allowed; }
 .quote-note, .chat-disclaimer { margin: 0.75rem 0 0; color: var(--muted); text-align: center; font-size: 0.875rem; line-height: 1.5; }
 
-.support-column { display: grid; grid-template-rows: 1fr auto; gap: 1.25rem; min-height: 622px; }
+.support-column { min-width: 0; align-self: start; }
 .chat-card { min-width: 0; padding: 1.25rem; display: flex; flex-direction: column; }
 .chat-header { display: flex; gap: 0.75rem; align-items: center; }
-.chat-header h2, .human-help h2 { font-size: 1.35rem; letter-spacing: -0.015em; }
+.chat-header h2 { font-size: 1.35rem; letter-spacing: -0.015em; }
 .chat-header p { margin: 0.3rem 0 0; color: var(--muted); font-size: 1rem; }
 .round-icon {
   flex: 0 0 auto;
@@ -404,26 +404,6 @@ html[dir="rtl"] .chat-form button { border-radius: 0.7rem 0 0 0.7rem; }
 .chat-form input::placeholder { color: var(--muted); }
 .chat-form button { min-width: 3rem; border: 0; border-radius: 0 0.7rem 0.7rem 0; background: var(--blue); color: white; font-size: 1.15rem; }
 .chat-form:focus-within { outline: 3px solid var(--navy); outline-offset: 2px; box-shadow: 0 0 0 5px var(--yellow); }
-.human-help { padding: 1.25rem; }
-.human-help h2 { margin-bottom: 1rem; }
-.help-options { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.65rem; }
-.help-option {
-  padding: 0.5rem 0.25rem;
-  display: grid;
-  grid-template-columns: auto minmax(0, 1fr);
-  gap: 0.65rem;
-  align-items: center;
-  border: 0;
-  border-radius: 0.65rem;
-  background: transparent;
-  color: var(--ink);
-  text-align: start;
-}
-.help-option:hover { background: var(--blue-soft); }
-.help-option .round-icon { width: 2.25rem; height: 2.25rem; }
-.help-option strong, .help-option small { display: block; }
-.help-option strong { font-size: 1rem; font-weight: 700; }
-.help-option small { margin-top: 0.25rem; color: var(--muted); font-size: 0.875rem; line-height: 1.4; }
 .benefits {
   padding: 1.5rem clamp(1rem, 4vw, 4rem);
   display: grid;
@@ -542,8 +522,7 @@ html.high-contrast .delivery-option.is-selected { border-width: 3px; }
 @media (max-width: 1260px) {
   .header-cta { display: none; }
   .product-grid { grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr); }
-  .support-column { grid-column: 1 / -1; min-height: auto; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); grid-template-rows: auto; }
-  .help-options { grid-template-columns: 1fr; }
+  .support-column { grid-column: 1 / -1; }
 }
 
 @media (max-width: 900px) {
@@ -561,8 +540,7 @@ html.high-contrast .delivery-option.is-selected { border-width: 3px; }
   .hero-image { display: none; }
   .quote-card h1 { font-size: clamp(1.75rem, 6vw, 2.5rem); }
   .hero-copy { padding: 1.75rem; }
-  .support-column { grid-column: auto; grid-template-columns: minmax(0, 1fr); min-height: auto; }
-  .help-options { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .support-column { grid-column: auto; }
   .benefits { grid-template-columns: 1fr; }
   .benefits article { justify-content: flex-start; padding: 0.35rem 0; }
   .benefits article + article { border-inline-start: 0; border-top: 1px solid var(--line); padding: 1.25rem 0 0; }
@@ -581,10 +559,10 @@ html.high-contrast .delivery-option.is-selected { border-width: 3px; }
   .tool-button { flex: 1; padding: 0.55rem 0.4rem; }
   .tool-button span:last-child:not(.contrast-icon) { display: inline; }
   .product-grid { padding: 0.75rem; gap: 1rem; }
-  .quote-card, .chat-card, .human-help { padding: 1.15rem; border-radius: 1rem; }
+  .quote-card, .chat-card { padding: 1.15rem; border-radius: 1rem; }
   .hero-copy { padding: 1.5rem; }
   .hero-panel { border-radius: 1rem; }
-  .delivery-options, .quick-actions, .help-options { grid-template-columns: 1fr; }
+  .delivery-options, .quick-actions { grid-template-columns: 1fr; }
   .money-field input, .receive-field output { font-size: 1.6rem; }
   .receive-field output { padding: 0.6rem 0.5rem; }
   .currency-code, .receive-field select { padding: 0.75rem 0.4rem; font-size: 0.875rem; }

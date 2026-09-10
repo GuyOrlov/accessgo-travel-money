@@ -43,3 +43,7 @@ UK English is the default. The globe menu also offers Spanish, French and Hebrew
 Hebrew uses right-to-left page layout. Currency codes and the GBP amount input remain easy to read. The language choice is saved in the visitor's browser under `gowithkite-language`; text-size and contrast settings keep their existing keys. All controls continue to work when browser storage is blocked.
 
 `languages.js` contains the four local dictionaries. There is no third-party translation widget or location tracking. Changing language does not change the currencies offered, the illustrative rates, the UK nature of BSL support, or the prototype's no-payment status.
+
+## Compact layout
+
+The photo sits directly below the main message. Cards use their content height. The repeated text/BSL support card has been removed; Help links to the travel chat, and BSL remains in the header.

@@ -12,7 +12,7 @@
     <title data-i18n="pageTitle">Go With Kite — Travel lighter. Go further.</title>
     <link rel="icon" href="favicon.svg" type="image/svg+xml" />
     <link rel="preload" href="atkinson-hyperlegible-next.ttf" as="font" type="font/ttf" crossorigin />
-    <link rel="stylesheet" href="styles.css?v=20260910-languages" />
+    <link rel="stylesheet" href="styles.css?v=20260910-compact" />
     <script src="languages.js?v=20260910-languages" defer></script>
     <script src="app.js?v=20260910-languages" defer></script>
   </head>
@@ -148,7 +148,7 @@
         </article>
 
         <div class="support-column">
-          <section class="card chat-card" aria-labelledby="chat-heading">
+          <section id="help" class="card chat-card" aria-labelledby="chat-heading">
             <div class="chat-header">
               <span class="round-icon robot-icon" aria-hidden="true">☻</span>
               <div>
@@ -175,19 +175,6 @@
             <p class="chat-disclaimer" data-i18n="chatNote">Demo replies only. No live rates.</p>
           </section>
 
-          <section id="help" class="card human-help" aria-labelledby="human-help-heading">
-            <h2 id="human-help-heading" data-i18n="humanHelp">Need more help?</h2>
-            <div class="help-options">
-              <button class="help-option" type="button" data-open-modal="support-modal">
-                <span class="round-icon" aria-hidden="true">•••</span>
-                <span><strong data-i18n="textSupport">Text support</strong><small data-i18n="textSupportNote">Help by message</small></span>
-              </button>
-              <button class="help-option" type="button" data-open-modal="bsl-modal">
-                <span class="round-icon" aria-hidden="true">🤟</span>
-                <span><strong data-i18n="bslHelp">BSL help</strong><small data-i18n="bslHelpNote">British Sign Language</small></span>
-              </button>
-            </div>
-          </section>
         </div>
       </section>
 
@@ -308,16 +295,6 @@
       </form>
     </dialog>
 
-    <dialog id="support-modal" class="modal">
-      <form method="dialog" class="modal-card">
-        <button class="modal-close" value="close" data-i18n-aria-label="closeSupport" aria-label="Close support information">×</button>
-        <span class="modal-icon" aria-hidden="true">•••</span>
-        <p class="section-label" data-i18n="textSupport">Text support</p>
-        <h2 data-i18n="supportPlanned">Text support is planned</h2>
-        <p data-i18n="supportBody">This demo is not linked to a support team. A future service could offer help by message without a phone call.</p>
-        <button class="primary-button" value="close" data-i18n="close">Close</button>
-      </form>
-    </dialog>
 
     <noscript><p class="noscript" data-i18n="noScript">Turn on JavaScript in your browser to use the quote, language choice and demo chat.</p></noscript>
   </body>
