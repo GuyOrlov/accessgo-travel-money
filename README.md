@@ -1,6 +1,6 @@
-# Barrier EX
+# BarrierEx
 
-**Travel lighter. Go further.**
+**Travel money. No barriers.**
 
 Travel money, your way. Clear prices, simple ordering and support that works for you.
 
