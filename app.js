@@ -161,7 +161,6 @@ function applySeoCopy() {
   setText("#how-it-works .steps li:nth-child(3) p", "Review the example exchange rate, delivery option and total cost before continuing. You cannot pay in this demo.");
   setText('.footer-directory a[href="index.html?delivery=home#quote"]', "Foreign currency home delivery");
   setText('.footer-directory a[href="index.html?delivery=collection#quote"]', "Click & collect travel money");
-  setText('.product-grid', document.querySelector('.product-grid')?.textContent || "");
   const productGrid = document.querySelector('.product-grid');
   if (productGrid) productGrid.setAttribute('aria-label', 'Accessible UK travel money comparison');
 
