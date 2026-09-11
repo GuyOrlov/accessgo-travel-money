@@ -424,7 +424,8 @@ html[dir="rtl"] .chat-form button { border-radius: 0.7rem 0 0 0.7rem; }
 .how-section { padding-bottom: 4rem; }
 .section-heading { max-width: 720px; }
 .section-heading h2 { margin: 0; font-size: clamp(2rem, 3.5vw, 3rem); line-height: 1.15; letter-spacing: -0.025em; }
-.section-heading > p:last-child { margin: 1.15rem 0 0; color: var(--muted); font-size: 1.125rem; }
+.inclusion-section .section-heading > p:last-child,
+.how-section .section-heading > p:last-child { margin: 1.15rem 0 0; color: var(--muted); font-size: 1.125rem; }
 .inclusion-stats { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem; margin-top: 2rem; }
 .stat-card { padding: clamp(1.25rem, 3vw, 2rem); border: 1px solid var(--line); border-top: 5px solid var(--blue); border-radius: 1rem; background: var(--surface); }
 .stat-card:nth-child(2) { border-top-color: var(--yellow); }
@@ -449,7 +450,9 @@ html[dir="rtl"] .chat-form button { border-radius: 0.7rem 0 0 0.7rem; }
   background: var(--blue);
   color: white;
 }
-.values-section .eyebrow { color: white; }
+.values-section .eyebrow { color: var(--yellow); }
+.values-section .section-heading h2,
+.values-section .section-heading > p:not(.eyebrow) { color: #ffffff; }
 .values-grid { margin: 2.25rem 0 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.5rem; }
 .values-grid > div { padding-top: 1.25rem; border-top: 2px solid var(--yellow); min-width: 0; }
 .values-grid dt { font-size: 1.25rem; font-weight: 700; overflow-wrap: break-word; }
