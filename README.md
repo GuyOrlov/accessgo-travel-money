@@ -55,3 +55,9 @@ The quote button opens `results.html` with the amount, currency, delivery choice
 The second page shows three explicitly fictional providers, fee-inclusive foreign amounts, sample ratings (not customer reviews), and fictional collection points. Offers can be sorted by amount or sample rating. Details explain the calculation; there are no purchase links, real branches, location tracking or live offers. Change your quote preserves the entered choices. All four languages, RTL, text size and contrast are supported on both pages.
 
 Foreign amounts are rounded to minor currency units for illustration; real cash denomination requirements are not modelled.
+
+## Legal and privacy page
+
+`legal.html` contains plain-language terms and conditions, privacy information, cookie and local-storage details, and an accessibility statement. Footer links open each section directly. The legal page supports the same four languages, text-size control, high-contrast mode and compact mobile menu.
+
+The current notice describes the demo as it exists: no account, contact form, payment, analytics or live order; preset chat replies run in the browser; quote choices appear in the results URL; accessibility preferences use local storage; GitHub Pages provides hosting. Business identity, working privacy/accessibility contacts and live purchase terms must be added before launch.

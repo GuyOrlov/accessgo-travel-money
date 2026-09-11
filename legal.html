@@ -6,19 +6,18 @@
     <meta name="theme-color" content="#0B4F6C" />
     <meta
       name="description"
-      data-i18n-content="resultsDescription"
-      content="Compare fictional travel money offers. Demo prices and ratings only."
+      data-i18n-content="legalPageDescription"
+      content="Terms, privacy, cookies and accessibility information for the BarrierEx travel money demo."
     />
-    <title data-i18n="resultsTitle">Compare example offers — BarrierEx</title>
+    <title data-i18n="legalPageTitle">Legal and privacy — BarrierEx</title>
     <link rel="icon" href="favicon.svg?v=teal" type="image/svg+xml" />
     <link rel="preload" href="atkinson-hyperlegible-next.ttf" as="font" type="font/ttf" crossorigin />
     <link rel="stylesheet" href="styles.css?v=20260911-legal" />
     <script src="languages.js?v=20260911-legal" defer></script>
     <script src="app.js?v=20260910-mobile-teal" defer></script>
-    <script src="results.js?v=20260910-mobile-teal" defer></script>
   </head>
   <body>
-    <a class="skip-link" href="#results" data-i18n="resultsSkip">Skip to comparison results</a>
+    <a class="skip-link" href="#legal-content" data-i18n="legalSkip">Skip to legal information</a>
 
     <div class="prototype-banner" role="note">
       <strong data-i18n="demoWebsite">Demo website</strong>
@@ -74,67 +73,73 @@
       <a class="header-cta" href="index.html#quote"><span data-i18n="getQuote">Get a quote</span> <span class="direction-arrow" aria-hidden="true">→</span></a>
     </header>
 
-    <main id="results" class="results-page">
-      <a id="edit-quote" class="edit-quote" href="index.html#quote" data-i18n="editQuote">Change your quote</a>
-      <p class="section-label" data-i18n="resultsEyebrow">YOUR TRAVEL MONEY · EXAMPLE RESULTS</p>
-      <h1 id="results-heading">Compare example offers</h1>
-      <p data-i18n="resultsIntro">Fees come out of your budget. Compare the final amount you receive.</p>
-      <aside class="results-notice" role="note" data-i18n="demoWarning">All providers, rates, locations and ratings below are made up. These are not live offers or customer reviews. You cannot buy through this demo.</aside>
-      <p id="results-error" class="field-error" role="alert" hidden data-i18n="invalidQuote"></p>
-      <div id="results-content" hidden>
-        <div class="results-toolbar">
-          <p id="results-count" role="status"></p>
-          <label class="sort-control" for="sort-offers">
-            <span data-i18n="sortLabel">Sort by</span>
-            <select id="sort-offers">
-              <option value="amount" data-i18n="sortAmount">Most cash</option>
-              <option value="rating" data-i18n="sortRating">Sample rating</option>
-            </select>
-          </label>
-        </div>
-        <div id="offers" class="offers" aria-labelledby="results-heading"></div>
+    <main id="legal-content" class="legal-page">
+      <a class="edit-quote" href="index.html" data-i18n="backHome">Back to the home page</a>
+      <header class="legal-hero">
+        <p class="section-label" data-i18n="legalEyebrow">LEGAL &amp; PRIVACY</p>
+        <h1 data-i18n="legalHeading">Legal and privacy</h1>
+        <p data-i18n="legalIntro">Clear information about how this demonstration website works.</p>
+        <p class="legal-updated" data-i18n="legalUpdated">Last updated: 11 September 2026</p>
+      </header>
+
+      <nav class="legal-jump" data-i18n-aria-label="legalNavLabel" aria-label="Legal sections">
+        <a href="#terms" data-i18n="termsLink">Terms and conditions</a>
+        <a href="#privacy" data-i18n="privacyLink">Privacy notice</a>
+        <a href="#cookies" data-i18n="cookiesLink">Cookies and device storage</a>
+        <a href="#accessibility" data-i18n="accessibilityLink">Accessibility statement</a>
+      </nav>
+
+      <aside class="results-notice legal-notice" role="note" data-i18n="legalDemoNotice">BarrierEx is a demonstration website. It does not sell travel money or take payments.</aside>
+
+      <div class="legal-stack">
+        <section id="terms" class="legal-card">
+          <h2 data-i18n="termsLink">Terms and conditions</h2>
+          <p class="legal-lead" data-i18n="termsLead">These terms apply when you use this demonstration website.</p>
+          <div class="legal-topic"><h3 data-i18n="termsDemoTitle">About this demo</h3><p data-i18n="termsDemoText">BarrierEx is a prototype. It does not create a contract, accept an order, reserve currency or process a payment. Travelex sponsorship is an unconfirmed example.</p></div>
+          <div class="legal-topic"><h3 data-i18n="termsInfoTitle">Example information</h3><p data-i18n="termsInfoText">Rates, fees, providers, collection points, ratings and reviews are fictional examples. They are not live quotes, customer reviews or financial advice. Check a real provider’s current terms and total cost before buying currency.</p></div>
+          <div class="legal-topic"><h3 data-i18n="termsUseTitle">Using the website</h3><p data-i18n="termsUseText">You may browse the site and try its example tools for lawful purposes. Do not try to damage the site, disrupt access or use it to mislead another person.</p></div>
+          <div class="legal-topic"><h3 data-i18n="termsAvailabilityTitle">Availability and responsibility</h3><p data-i18n="termsAvailabilityText">We try to keep this demo clear and working, but we do not promise that it will always be available or free from errors. Nothing here limits rights or legal protections that cannot lawfully be limited.</p></div>
+          <div class="legal-topic"><h3 data-i18n="termsBrandsTitle">Names and brands</h3><p data-i18n="termsBrandsText">BarrierEx branding belongs to its owner. Other names, logos and payment brands belong to their respective owners. Their appearance in this prototype does not confirm a partnership or approval.</p></div>
+          <div class="legal-topic"><h3 data-i18n="termsChangesTitle">Changes</h3><p data-i18n="termsChangesText">The demo and these terms may change. Full business details, contact information and purchase terms must be added before any live service launches.</p></div>
+        </section>
+
+        <section id="privacy" class="legal-card">
+          <h2 data-i18n="privacyLink">Privacy notice</h2>
+          <p class="legal-lead" data-i18n="privacyLead">This notice explains what happens to information when you use the current demo.</p>
+          <div class="legal-topic"><h3 data-i18n="privacyCollectTitle">Information sent to BarrierEx</h3><p data-i18n="privacyCollectText">There is no account, order, payment or contact form. The site owner does not receive personal information through this demo.</p></div>
+          <div class="legal-topic"><h3 data-i18n="privacyQuoteTitle">Your example quote</h3><p data-i18n="privacyQuoteText">Your amount, currency, delivery choice and language are added to the results-page address so it can show your example. That address can appear in your browser history and normal hosting logs. Only enter an amount; do not add personal or sensitive information.</p></div>
+          <div class="legal-topic"><h3 data-i18n="privacyChatTitle">Demo travel helper</h3><p data-i18n="privacyChatText">Messages typed into the travel helper are matched to preset replies in your browser. BarrierEx does not send or save those messages.</p></div>
+          <div class="legal-topic"><h3 data-i18n="privacyStorageTitle">Choices saved on your device</h3><p data-i18n="privacyStorageText">Your language, larger-text and contrast choices can be saved in your browser. They stay on your device until you change them or clear this site’s stored data.</p></div>
+          <div class="legal-topic"><h3 data-i18n="privacyHostingTitle">Website hosting</h3><p data-i18n="privacyHostingText">GitHub Pages hosts this demo. GitHub may process normal technical information such as IP address, device details, request time and pages viewed under its own privacy statement.</p></div>
+          <div class="legal-topic"><h3 data-i18n="privacyRightsTitle">Your rights and a future live service</h3><p data-i18n="privacyRightsText">Before BarrierEx collects personal information or becomes a live service, this notice will be updated with the data controller’s identity, a working privacy contact, purposes, lawful bases, retention periods and your rights.</p></div>
+          <ul class="legal-source-links">
+            <li><a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" data-i18n="githubPrivacy">Read GitHub’s privacy statement</a></li>
+            <li><a href="https://ico.org.uk/for-the-public/" data-i18n="icoRights">Learn about your information rights from the ICO</a></li>
+          </ul>
+        </section>
+
+        <section id="cookies" class="legal-card">
+          <h2 data-i18n="cookiesLink">Cookies and device storage</h2>
+          <p class="legal-lead" data-i18n="cookiesLead">This section covers cookies and similar storage used by the current demo.</p>
+          <div class="legal-topic"><h3 data-i18n="cookiesSiteTitle">No advertising cookies</h3><p data-i18n="cookiesSiteText">BarrierEx code does not set cookies. It does not use analytics, advertising trackers or social-media pixels.</p></div>
+          <div class="legal-topic"><h3 data-i18n="cookiesStorageTitle">Local storage</h3><p data-i18n="cookiesStorageText">After you choose a language, larger text or high contrast, the site uses local storage to remember that choice on your device. This is used only to provide the setting you asked for.</p></div>
+          <div class="legal-topic"><h3 data-i18n="cookiesTrackingTitle">No visitor tracking</h3><p data-i18n="cookiesTrackingText">BarrierEx does not create visitor counts, advertising profiles or cross-site tracking. If non-essential tracking is added later, clear information and suitable controls will be added first.</p></div>
+          <div class="legal-topic"><h3 data-i18n="cookiesControlTitle">How to clear your choices</h3><p data-i18n="cookiesControlText">Use your browser settings to remove this site’s stored data. The website will then return to its default language, text size and contrast.</p></div>
+          <ul class="legal-source-links">
+            <li><a href="https://ico.org.uk/for-organisations/direct-marketing-and-privacy-and-electronic-communications/guide-to-pecr/cookies-and-similar-technologies/" data-i18n="icoCookies">Read the ICO guidance on cookies and similar technologies</a></li>
+          </ul>
+        </section>
+
+        <section id="accessibility" class="legal-card">
+          <h2 data-i18n="accessibilityLink">Accessibility statement</h2>
+          <p class="legal-lead" data-i18n="accessLead">BarrierEx aims to make this demo usable by as many people as possible.</p>
+          <div class="legal-topic"><h3 data-i18n="accessFeaturesTitle">Accessibility features</h3><p data-i18n="accessFeaturesText">The site supports keyboard navigation, visible focus, larger text, high contrast, plain language, right-to-left Hebrew and layouts that adapt to small screens.</p></div>
+          <div class="legal-topic"><h3 data-i18n="accessLimitsTitle">Current limits</h3><p data-i18n="accessLimitsText">BSL videos and live human support are planned but are not available. This prototype has not had a formal independent accessibility audit.</p></div>
+          <div class="legal-topic"><h3 data-i18n="accessFeedbackTitle">Accessibility contact</h3><p data-i18n="accessFeedbackText">A working accessibility contact and response process will be published before a live service launches.</p></div>
+        </section>
       </div>
     </main>
 
-
-    <section class="bottom-trust" aria-labelledby="payment-heading">
-      <div class="payment-strip">
-        <div>
-          <h2 id="payment-heading" data-i18n="paymentHeading">Ways to pay — planned</h2>
-          <p data-i18n="paymentNote">Example payment options only. No payments are accepted on this website.</p>
-        </div>
-        <ul class="payment-badges" aria-labelledby="payment-heading" dir="ltr">
-          <li class="pay-visa">VISA</li><li>Mastercard</li><li>Maestro</li><li>Apple Pay</li><li>Google Pay</li>
-        </ul>
-      </div>
-      <div class="reviews-heading">
-        <h2 data-i18n="reviewsHeading">What the experience could feel like</h2>
-        <p data-i18n="reviewsNote">Made-up reviews for this demo. These are not customer feedback or verified reviews.</p>
-      </div>
-      <div class="review-grid">
-        <article class="sample-review">
-          <div class="review-meta"><span class="review-stars" role="img" data-i18n-aria-label="sampleStars" aria-label="5 out of 5 — made-up example">★★★★★</span><span data-i18n="sampleReview">Example review</span></div>
-          <h3 data-i18n="reviewOneTitle">Clear from the start</h3>
-          <p data-i18n="reviewOne">“I could see the fees and the final amount together.”</p>
-        </article>
-<article class="sample-review">
-          <div class="review-meta"><span class="review-stars" role="img" data-i18n-aria-label="sampleStars" aria-label="5 out of 5 — made-up example">★★★★★</span><span data-i18n="sampleReview">Example review</span></div>
-          <h3 data-i18n="reviewTwoTitle">Easy to compare</h3>
-          <p data-i18n="reviewTwo">“Seeing the offers side by side made the choices clear.”</p>
-        </article>
-<article class="sample-review">
-          <div class="review-meta"><span class="review-stars" role="img" data-i18n-aria-label="sampleStars" aria-label="5 out of 5 — made-up example">★★★★★</span><span data-i18n="sampleReview">Example review</span></div>
-          <h3 data-i18n="reviewThreeTitle">Help in writing</h3>
-          <p data-i18n="reviewThree">“I liked being able to read the help at my own pace.”</p>
-        </article>
-<article class="sample-review">
-          <div class="review-meta"><span class="review-stars" role="img" data-i18n-aria-label="sampleStars" aria-label="5 out of 5 — made-up example">★★★★★</span><span data-i18n="sampleReview">Example review</span></div>
-          <h3 data-i18n="reviewFourTitle">Simple on my phone</h3>
-          <p data-i18n="reviewFour">“The amounts were easy to read on a small screen.”</p>
-        </article>
-      </div>
-      <p class="trustpilot-note" data-i18n="trustpilotNote">Trustpilot is not connected. No Trustpilot score or review count is claimed.</p>
-    </section>
     <div class="footer-directory">
       <div class="footer-directory-inner">
         <nav aria-labelledby="services-heading">
@@ -206,6 +211,6 @@
     </dialog>
 
 
-    <noscript><p class="noscript" data-i18n="noScript">Turn on JavaScript in your browser to use the quote, language choice and demo chat.</p></noscript>
+    <noscript><p class="noscript" data-i18n="legalNoScript">The legal information works without JavaScript. Turn it on to change the language, text size or contrast.</p></noscript>
   </body>
 </html>
