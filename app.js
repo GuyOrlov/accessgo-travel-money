@@ -97,6 +97,115 @@ function updatePreferenceLabels() {
   contrastButton.setAttribute("aria-label", t(contrastHigh ? "contrastOff" : "contrastOn"));
 }
 
+function ensureSeoMeta(attribute, key, content) {
+  let meta = document.head.querySelector(`meta[${attribute}="${key}"]`);
+  if (!meta) {
+    meta = document.createElement("meta");
+    meta.setAttribute(attribute, key);
+    document.head.appendChild(meta);
+  }
+  meta.setAttribute("content", content);
+}
+
+function applySeoCopy() {
+  const oldSeoSection = document.querySelector("#seo-travel-money");
+  if (activeLanguage !== "en-GB") {
+    oldSeoSection?.remove();
+    return;
+  }
+
+  const title = "Compare Travel Money & Exchange Rates UK | BarrierEx";
+  const description = "Compare travel money exchange rates, fees, home delivery and click & collect options in a clear, accessible way. BarrierEx is designed for UK travellers, including Deaf and disabled people.";
+  const canonicalUrl = "https://guyorlov.com/accessgo-travel-money/";
+
+  document.title = title;
+  const descriptionMeta = document.querySelector('meta[name="description"]');
+  if (descriptionMeta) descriptionMeta.setAttribute("content", description);
+
+  let canonical = document.head.querySelector('link[rel="canonical"]');
+  if (!canonical) {
+    canonical = document.createElement("link");
+    canonical.setAttribute("rel", "canonical");
+    document.head.appendChild(canonical);
+  }
+  canonical.setAttribute("href", canonicalUrl);
+
+  ensureSeoMeta("property", "og:title", title);
+  ensureSeoMeta("property", "og:description", description);
+  ensureSeoMeta("property", "og:type", "website");
+  ensureSeoMeta("property", "og:url", canonicalUrl);
+  ensureSeoMeta("name", "twitter:card", "summary_large_image");
+  ensureSeoMeta("name", "twitter:title", title);
+  ensureSeoMeta("name", "twitter:description", description);
+
+  const setText = (selector, text) => {
+    const element = document.querySelector(selector);
+    if (element) element.textContent = text;
+  };
+
+  setText("#quote .section-label", "Compare example travel money rates");
+  setText("#quote-heading", "Compare travel money and exchange rates");
+  setText(".hero-panel .eyebrow", "Accessible travel money for UK travellers");
+  setText(".hero-panel .hero-intro", "Compare exchange rates, fees, home delivery and collection with clear, simple information.");
+  setText(".benefits article:nth-child(1) h2", "Clear exchange rates and fees");
+  setText(".benefits article:nth-child(1) p", "See example exchange rates, fees and total costs before you decide.");
+  setText(".benefits article:nth-child(2) h2", "Simple travel money comparison");
+  setText(".benefits article:nth-child(2) p", "Easy steps to compare foreign currency options from quote to review.");
+  setText(".benefits article:nth-child(3) h2", "Accessible travel money support");
+  setText(".benefits article:nth-child(3) p", "Planned BSL, text and chat support designed around different communication needs.");
+  setText("#inclusion-heading", "Travel money designed with Deaf and disabled travellers in mind.");
+  setText(".inclusion-section .section-heading > p:last-child", "Everyone deserves clear travel money information, accessible support and more choice when planning a holiday.");
+  setText("#how-it-works .steps li:nth-child(1) h3", "Choose your foreign currency");
+  setText("#how-it-works .steps li:nth-child(1) p", "Choose euros, US dollars or another available foreign currency and enter your travel money budget.");
+  setText("#how-it-works .steps li:nth-child(3) h3", "Check the exchange rate, fees and total cost");
+  setText("#how-it-works .steps li:nth-child(3) p", "Review the example exchange rate, delivery option and total cost before continuing. You cannot pay in this demo.");
+  setText('.footer-directory a[href="index.html?delivery=home#quote"]', "Foreign currency home delivery");
+  setText('.footer-directory a[href="index.html?delivery=collection#quote"]', "Click & collect travel money");
+  setText('.product-grid', document.querySelector('.product-grid')?.textContent || "");
+  const productGrid = document.querySelector('.product-grid');
+  if (productGrid) productGrid.setAttribute('aria-label', 'Accessible UK travel money comparison');
+
+  if (!oldSeoSection) {
+    const howSection = document.querySelector("#how-it-works");
+    if (howSection) {
+      const seoSection = document.createElement("section");
+      seoSection.id = "seo-travel-money";
+      seoSection.className = "values-section";
+      seoSection.setAttribute("aria-labelledby", "seo-travel-money-heading");
+      seoSection.innerHTML = `
+        <div class="section-heading">
+          <p class="eyebrow">Compare foreign currency clearly</p>
+          <h2 id="seo-travel-money-heading">Accessible travel money comparison for UK travellers</h2>
+          <p>BarrierEx is an accessible travel money comparison concept for people looking to buy euros, buy US dollars, compare foreign currency exchange rates and understand home delivery or click & collect travel money options.</p>
+          <p>It is designed with clear language and planned BSL, text and chat support for Deaf and disabled travellers. This demo uses example rates only and does not take payments.</p>
+        </div>`;
+      howSection.insertAdjacentElement("afterend", seoSection);
+    }
+  }
+
+  let structuredData = document.querySelector("#barrierex-seo-schema");
+  if (!structuredData) {
+    structuredData = document.createElement("script");
+    structuredData.type = "application/ld+json";
+    structuredData.id = "barrierex-seo-schema";
+    document.head.appendChild(structuredData);
+  }
+  structuredData.textContent = JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "BarrierEx",
+    url: canonicalUrl,
+    description,
+    inLanguage: "en-GB",
+    about: [
+      "travel money comparison",
+      "foreign currency exchange rates",
+      "accessible travel money",
+      "BSL travel money support"
+    ]
+  });
+}
+
 function applyLanguage(locale, save = true) {
   activeLanguage = Object.prototype.hasOwnProperty.call(languages, locale) ? locale : "en-GB";
   document.documentElement.lang = activeLanguage;
@@ -120,6 +229,7 @@ function applyLanguage(locale, save = true) {
   updatePreferenceLabels();
   updateQuote();
   if (window.renderResults) window.renderResults();
+  applySeoCopy();
   languageChoice.disabled = false;
   if (save) savePreference("gowithkite-language", activeLanguage);
 }
