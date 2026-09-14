@@ -253,6 +253,49 @@ h1, h2, h3 { letter-spacing: -0.035em; }
 }
 .site-footer { padding-block: 2.5rem; }
 
+/* VRS preview: visually replaces the BSL shortcut and fills the support space beneath chat. */
+.support-column {
+  display: grid;
+  gap: 1.25rem;
+}
+.support-column::after {
+  content: "";
+  display: block;
+  width: 100%;
+  aspect-ratio: 760 / 560;
+  border-radius: var(--radius-lg);
+  background: #fff url("vrs-interpreter.svg") center / 100% 100% no-repeat;
+  box-shadow: var(--shadow);
+}
+
+button[data-open-modal="bsl-modal"] {
+  min-width: 4.9rem;
+  font-size: 0;
+  gap: 0.42rem;
+}
+button[data-open-modal="bsl-modal"] > * { display: none !important; }
+button[data-open-modal="bsl-modal"]::before {
+  content: "";
+  width: 1.15rem;
+  height: 0.82rem;
+  flex: 0 0 auto;
+  border: 2px solid currentColor;
+  border-radius: 0.2rem;
+  background: currentColor;
+  clip-path: polygon(0 0, 68% 0, 68% 22%, 100% 5%, 100% 95%, 68% 78%, 68% 100%, 0 100%);
+}
+button[data-open-modal="bsl-modal"]::after {
+  content: "VRS";
+  font-size: 0.9rem;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+}
+
+html.high-contrast .support-column::after {
+  border: 3px solid #000;
+  box-shadow: none;
+}
+
 /* Preserve the high-contrast theme even though this file loads last. */
 html.high-contrast {
   --navy: #000;
@@ -288,6 +331,10 @@ html.high-contrast #why-us .benefits article { border: 3px solid #000; box-shado
     min-height: 0;
     padding: 1.4rem;
   }
+  .support-column::after {
+    max-width: 46rem;
+    justify-self: center;
+  }
 }
 
 @media (max-width: 560px) {
@@ -306,6 +353,7 @@ html.high-contrast #why-us .benefits article { border: 3px solid #000; box-shado
     font-size: 1rem;
     line-height: 1.65;
   }
+  .support-column::after { border-radius: 1.4rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {
