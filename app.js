@@ -152,7 +152,7 @@ function applySeoCopy() {
   setText(".benefits article:nth-child(2) h2", "Simple travel money comparison");
   setText(".benefits article:nth-child(2) p", "Easy steps to compare foreign currency options from quote to review.");
   setText(".benefits article:nth-child(3) h2", "Accessible travel money support");
-  setText(".benefits article:nth-child(3) p", "Planned BSL, text and chat support designed around different communication needs.");
+  setText(".benefits article:nth-child(3) p", "Planned VRS, text and chat support designed around different communication needs.");
   setText("#inclusion-heading", "Travel money designed with Deaf and disabled travellers in mind.");
   setText(".inclusion-section .section-heading > p:last-child", "Everyone deserves clear travel money information, accessible support and more choice when planning a holiday.");
   setText("#how-it-works .steps li:nth-child(1) h3", "Choose your foreign currency");
@@ -176,7 +176,7 @@ function applySeoCopy() {
           <p class="eyebrow">Compare foreign currency clearly</p>
           <h2 id="seo-travel-money-heading">Accessible travel money comparison for UK travellers</h2>
           <p>BarrierEx is an accessible travel money comparison concept for people looking to buy euros, buy US dollars, compare foreign currency exchange rates and understand home delivery or click & collect travel money options.</p>
-          <p>It is designed with clear language and planned BSL, text and chat support for Deaf and disabled travellers. This demo uses example rates only and does not take payments.</p>
+          <p>It is designed with clear language and planned VRS, text and chat support for Deaf and disabled travellers. This demo uses example rates only and does not take payments.</p>
         </div>`;
       howSection.insertAdjacentElement("afterend", seoSection);
     }
@@ -200,7 +200,7 @@ function applySeoCopy() {
       "travel money comparison",
       "foreign currency exchange rates",
       "accessible travel money",
-      "BSL travel money support"
+      "VRS travel money support"
     ]
   });
 }
@@ -255,7 +255,7 @@ function replyFor(text) {
   const replies = [
     ["replyCosts", ["cost", "fee", "price", "precio", "coste", "tarifa", "prix", "frais", "cout", "מחיר", "עלות", "עלויות", "עמלה"]],
     ["replyDelivery", ["deliver", "collect", "envio", "entrega", "recog", "livraison", "livrer", "retrait", "משלוח", "איסוף"]],
-    ["replyBsl", ["bsl", "sign", "signe", "sena", "סימנים"]],
+    ["replyBsl", ["vrs", "video relay", "interpreter", "sign", "signe", "sena", "סימנים"]],
     ["replyRate", ["rate", "euro", "dollar", "cambio", "taux", "change", "שער", "אירו", "יורו", "דולר"]]
   ];
   for (const [key, words] of replies) {
@@ -347,3 +347,56 @@ if (amountInput) {
   }
 }
 applyLanguage(quoteParams.get("lang") || readPreference("gowithkite-language") || "en-GB", false);
+
+/* VRS prototype: repurpose the existing BSL shortcut and modal without changing the working modal code. */
+function applyVrsPrototype() {
+  const vrsButton = document.querySelector('button[data-open-modal="bsl-modal"]');
+  if (vrsButton) {
+    vrsButton.removeAttribute("data-i18n-aria-label");
+    vrsButton.setAttribute("aria-label", "Open Video Relay Service information");
+    vrsButton.setAttribute("title", "Video Relay Service (VRS)");
+  }
+
+  const modal = document.getElementById("bsl-modal");
+  if (modal) {
+    modal.setAttribute("aria-label", "Video Relay Service information");
+    const icon = modal.querySelector(".modal-icon");
+    if (icon) {
+      icon.textContent = "▶";
+      icon.setAttribute("aria-hidden", "true");
+    }
+    const label = modal.querySelector(".section-label");
+    if (label) {
+      label.removeAttribute("data-i18n");
+      label.textContent = "Video Relay Service";
+    }
+    const heading = modal.querySelector("h2");
+    if (heading) {
+      heading.removeAttribute("data-i18n");
+      heading.textContent = "VRS support is planned";
+    }
+    const body = modal.querySelector("h2 + p");
+    if (body) {
+      body.removeAttribute("data-i18n");
+      body.textContent = "A future VRS service could connect Deaf customers by video with a professional interpreter who can support communication during the travel-money journey. This demo does not connect to a live interpreter.";
+    }
+    const placeholder = modal.querySelector(".video-placeholder");
+    if (placeholder) {
+      placeholder.removeAttribute("data-i18n-aria-label");
+      placeholder.setAttribute("aria-label", "Preview of a future VRS interpreter connection");
+      const strong = placeholder.querySelector("strong");
+      if (strong) {
+        strong.removeAttribute("data-i18n");
+        strong.textContent = "VRS interpreter connection — planned";
+      }
+    }
+  }
+
+  const supportCopy = document.querySelector("#why-card-two-copy");
+  if (supportCopy && activeLanguage === "en-GB") {
+    supportCopy.textContent = "Plain language, high-contrast controls and planned VRS, text and chat support.";
+  }
+}
+
+applyVrsPrototype();
+languageChoice?.addEventListener("change", () => window.setTimeout(applyVrsPrototype, 0));
