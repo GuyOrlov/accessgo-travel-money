@@ -1,0 +1,40 @@
+name: Update BarrierEx Why Us Copy
+
+on:
+  push:
+    paths:
+      - '.github/workflows/update-why-us-copy-20260914.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  update-copy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Replace Why us paragraph
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('index.html')
+          text = p.read_text(encoding='utf-8')
+          old = "Travel money should feel simple, clear and accessible. BarrierEx brings exchange rates, delivery choices and support together in one straightforward journey, so you can focus on your trip."
+          new = "Travel money should be simple, transparent and accessible to everyone. BarrierEx brings exchange rates, fees, home delivery, click & collect and accessible support together in one clear place, using plain language and options designed with Deaf and disabled travellers in mind. Compare your choices with confidence, get your money sorted before you go, and spend more time looking forward to your journey."
+          count = text.count(old)
+          if count == 0:
+              raise SystemExit('Target copy not found; no changes made.')
+          p.write_text(text.replace(old, new), encoding='utf-8')
+          print(f'Replaced {count} occurrence(s).')
+          PY
+      - name: Remove one-time workflow
+        run: rm .github/workflows/update-why-us-copy-20260914.yml
+      - name: Commit update
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html .github/workflows/update-why-us-copy-20260914.yml
+          git commit -m "Improve BarrierEx Why us statement"
+          git push
