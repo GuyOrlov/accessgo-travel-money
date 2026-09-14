@@ -1,0 +1,315 @@
+/* BarrierEx blue design-system refresh.
+   Inspired by modern fintech design-system principles while keeping BarrierEx's own identity. */
+:root {
+  --navy: #0d5974;
+  --blue: #0d5974;
+  --blue-hover: #08465c;
+  --blue-soft: #e9f4f7;
+  --yellow: #ffd84d;
+  --ink: #102f3a;
+  --muted: #526a73;
+  --line: #d5e3e8;
+  --surface: #ffffff;
+  --page: #f3f8fa;
+  --shadow: 0 18px 50px rgba(13, 89, 116, 0.10);
+  --radius-sm: 0.8rem;
+  --radius-md: 1.25rem;
+  --radius-lg: 2rem;
+}
+
+body { letter-spacing: -0.006em; }
+h1, h2, h3 { letter-spacing: -0.035em; }
+
+.site-header {
+  min-height: 92px;
+  padding-block: 1.15rem;
+  border-bottom: 0;
+  box-shadow: 0 1px 0 var(--line);
+}
+
+.brand-main.barrier-wordmark {
+  font-size: clamp(1.9rem, 3vw, 2.45rem);
+  font-weight: 800;
+  letter-spacing: -0.055em;
+  border-bottom-width: 5px;
+}
+
+.brand-sub.brand-tagline {
+  margin-top: 0.45rem;
+  max-width: 18rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--muted);
+}
+
+.main-nav { gap: clamp(1rem, 2.5vw, 2.4rem); }
+.main-nav a {
+  position: relative;
+  font-weight: 700;
+  text-decoration: none;
+}
+.main-nav a::after {
+  content: "";
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0.18rem;
+  height: 3px;
+  border-radius: 999px;
+  background: var(--yellow);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 160ms ease;
+}
+.main-nav a:hover::after,
+.main-nav a:focus-visible::after { transform: scaleX(1); }
+
+.header-cta,
+.primary-button {
+  border-radius: 999px;
+  font-weight: 800;
+}
+.header-cta { padding-inline: 1.35rem; }
+
+.product-grid {
+  max-width: 1480px;
+  padding: 2rem clamp(1rem, 3.5vw, 4rem) 3rem;
+  gap: 1.5rem;
+}
+
+.hero-panel,
+.card,
+.quote-card,
+.chat-card { border-radius: var(--radius-lg); }
+
+.hero-panel {
+  min-height: 100%;
+  box-shadow: var(--shadow);
+}
+.hero-copy { padding: clamp(2rem, 3.4vw, 3.5rem); }
+.hero-panel h2 {
+  font-size: clamp(2.7rem, 8.5cqi, 4.6rem);
+  line-height: 0.98;
+  letter-spacing: -0.055em;
+}
+.hero-intro {
+  max-width: 34rem;
+  margin-top: 1.5rem;
+  font-size: 1.2rem;
+  line-height: 1.55;
+}
+
+.card {
+  border-color: transparent;
+  box-shadow: var(--shadow);
+}
+.quote-card {
+  padding: clamp(1.5rem, 2.5vw, 2.25rem);
+  border-top: 0;
+}
+.quote-card::before {
+  content: "";
+  width: 3.2rem;
+  height: 0.38rem;
+  margin-bottom: 1rem;
+  border-radius: 999px;
+  background: var(--yellow);
+}
+.card h2,
+.quote-card h1 {
+  font-size: clamp(1.8rem, 2.35vw, 2.35rem);
+  line-height: 1.08;
+}
+
+.money-field,
+.delivery-option,
+.chat-form,
+.quick-actions button,
+.language-picker,
+.tool-button { border-radius: var(--radius-sm); }
+.money-field,
+.delivery-option,
+.chat-form { border-color: #8da6af; }
+.delivery-option {
+  transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
+}
+.delivery-option:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(13, 89, 116, 0.08);
+}
+
+#why-us.values-section {
+  width: calc(100% - 2rem);
+  max-width: 1280px;
+  margin: 1rem auto 5rem;
+  padding: clamp(2rem, 5vw, 4.75rem);
+  border-radius: clamp(1.6rem, 3vw, 2.5rem);
+  background: var(--navy);
+  box-shadow: 0 22px 60px rgba(13, 89, 116, 0.14);
+}
+#why-us .section-heading { max-width: 920px; }
+#why-us .eyebrow {
+  margin-bottom: 1rem;
+  font-size: 0.88rem;
+  font-weight: 800;
+  letter-spacing: 0.085em;
+}
+#why-us .section-heading h2 {
+  max-width: 13ch;
+  font-size: clamp(2.65rem, 5.6vw, 4.8rem);
+  line-height: 0.98;
+  letter-spacing: -0.06em;
+}
+#why-us .section-heading > p:not(.eyebrow) {
+  max-width: 850px;
+  margin: 1.6rem 0 0;
+  font-size: clamp(1.05rem, 1.65vw, 1.25rem);
+  line-height: 1.7;
+  color: #f4fbfd;
+}
+#why-us .benefits {
+  margin-top: 2.5rem;
+  padding: 0;
+  gap: 1rem;
+  border: 0;
+  background: transparent;
+}
+#why-us .benefits article,
+#why-us .benefits article + article {
+  min-height: 220px;
+  padding: 1.7rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 1.15rem;
+  border: 0;
+  border-radius: 1.5rem;
+  background: var(--surface);
+  color: var(--ink);
+  box-shadow: 0 12px 28px rgba(5, 43, 58, 0.14);
+}
+#why-us .benefit-icon { width: 3rem; height: 3rem; }
+#why-us .benefits h2 {
+  margin-top: 0.1rem;
+  color: var(--ink);
+  font-size: 1.35rem;
+  line-height: 1.15;
+}
+#why-us .benefits p {
+  margin-top: 0.4rem;
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.55;
+}
+
+.inclusion-section,
+.how-section {
+  max-width: 1280px;
+  padding-inline: clamp(1.25rem, 5vw, 4rem);
+}
+.section-heading { max-width: 820px; }
+.section-heading h2 {
+  font-size: clamp(2.25rem, 4vw, 3.5rem);
+  line-height: 1.02;
+}
+.steps { gap: 1rem; }
+.steps li,
+.stat-card {
+  border: 0;
+  border-radius: 1.5rem;
+  box-shadow: var(--shadow);
+}
+.steps li { padding: 1.65rem; }
+.steps li > span { width: 2.6rem; height: 2.6rem; }
+.stat-card { padding: clamp(1.5rem, 3vw, 2.4rem); }
+
+.values-section:not(#why-us) {
+  max-width: 1280px;
+  padding: clamp(2rem, 4vw, 3.5rem);
+  border-radius: 2rem;
+}
+
+.bottom-trust {
+  padding-block: 3rem;
+  border-top: 0;
+}
+.payment-strip {
+  margin-bottom: 0;
+  padding: 1.5rem 0;
+  border-bottom: 0;
+}
+.payment-badges li {
+  border-radius: 999px;
+  padding-inline: 1rem;
+}
+.footer-directory {
+  padding-block: 3rem;
+  border-bottom-color: rgba(255, 255, 255, 0.24);
+}
+.footer-directory-inner { max-width: 1280px; }
+.footer-directory h2 {
+  font-size: 1.1rem;
+  letter-spacing: -0.02em;
+}
+.site-footer { padding-block: 2.5rem; }
+
+/* Preserve the high-contrast theme even though this file loads last. */
+html.high-contrast {
+  --navy: #000;
+  --blue: #000;
+  --blue-hover: #222;
+  --blue-soft: #fff;
+  --yellow: #ffea00;
+  --ink: #000;
+  --muted: #222;
+  --line: #000;
+  --surface: #fff;
+  --page: #fff;
+  --shadow: none;
+}
+html.high-contrast #why-us.values-section,
+html.high-contrast .hero-panel { background: #fff; color: #000; border: 3px solid #000; box-shadow: none; }
+html.high-contrast #why-us .section-heading > p:not(.eyebrow),
+html.high-contrast #why-us .eyebrow { color: #000; }
+html.high-contrast #why-us .benefits article { border: 3px solid #000; box-shadow: none; }
+
+@media (max-width: 900px) {
+  #why-us.values-section {
+    margin-top: 0;
+    padding: 2.25rem 1.5rem;
+  }
+  #why-us .section-heading h2 {
+    max-width: 15ch;
+    font-size: clamp(2.4rem, 9vw, 3.6rem);
+  }
+  #why-us .benefits { grid-template-columns: 1fr; }
+  #why-us .benefits article,
+  #why-us .benefits article + article {
+    min-height: 0;
+    padding: 1.4rem;
+  }
+}
+
+@media (max-width: 560px) {
+  .product-grid { padding-inline: 0.75rem; }
+  .hero-panel,
+  .quote-card,
+  .chat-card,
+  #why-us.values-section,
+  .values-section:not(#why-us) { border-radius: 1.4rem; }
+  #why-us.values-section {
+    width: calc(100% - 1.5rem);
+    padding: 1.75rem 1.25rem;
+    margin-bottom: 3rem;
+  }
+  #why-us .section-heading > p:not(.eyebrow) {
+    font-size: 1rem;
+    line-height: 1.65;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .main-nav a::after,
+  .delivery-option { transition: none; }
+  .delivery-option:hover { transform: none; }
+}
