@@ -114,8 +114,8 @@ function applySeoCopy() {
     return;
   }
 
-  const title = "Compare Travel Money & Exchange Rates UK | BarrierEx";
-  const description = "Compare travel money exchange rates, fees, home delivery and click & collect options in a clear, accessible way. BarrierEx is designed for UK travellers, including Deaf and disabled people.";
+  const title = "Compare Travel Money & Exchange Rates UK | Hassle Pass";
+  const description = "Compare travel money exchange rates, fees, home delivery and click & collect options in a clear, accessible way. Hassle Pass is designed for UK travellers, including Deaf and disabled people.";
   const canonicalUrl = "https://guyorlov.com/accessgo-travel-money/";
 
   document.title = title;
@@ -175,24 +175,24 @@ function applySeoCopy() {
         <div class="section-heading">
           <p class="eyebrow">Compare foreign currency clearly</p>
           <h2 id="seo-travel-money-heading">Accessible travel money comparison for UK travellers</h2>
-          <p>BarrierEx is an accessible travel money comparison concept for people looking to buy euros, buy US dollars, compare foreign currency exchange rates and understand home delivery or click & collect travel money options.</p>
+          <p>Hassle Pass is an accessible travel money comparison concept for people looking to buy euros, buy US dollars, compare foreign currency exchange rates and understand home delivery or click & collect travel money options.</p>
           <p>It is designed with clear language and planned VRS, text and chat support for Deaf and disabled travellers. This demo uses example rates only and does not take payments.</p>
         </div>`;
       howSection.insertAdjacentElement("afterend", seoSection);
     }
   }
 
-  let structuredData = document.querySelector("#barrierex-seo-schema");
+  let structuredData = document.querySelector("#hasslepass-seo-schema");
   if (!structuredData) {
     structuredData = document.createElement("script");
     structuredData.type = "application/ld+json";
-    structuredData.id = "barrierex-seo-schema";
+    structuredData.id = "hasslepass-seo-schema";
     document.head.appendChild(structuredData);
   }
   structuredData.textContent = JSON.stringify({
     "@context": "https://schema.org",
     "@type": "WebSite",
-    name: "BarrierEx",
+    name: "Hassle Pass",
     url: canonicalUrl,
     description,
     inLanguage: "en-GB",

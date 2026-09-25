@@ -1,16 +1,16 @@
-/* BarrierEx blue design-system refresh.
-   Inspired by modern fintech design-system principles while keeping BarrierEx's own identity. */
+/* Hassle Pass blue design-system refresh.
+   Inspired by modern fintech design-system principles while keeping Hassle Pass's own identity. */
 :root {
-  --navy: #0d5974;
-  --blue: #0d5974;
-  --blue-hover: #08465c;
-  --blue-soft: #e9f4f7;
-  --yellow: #ffd84d;
-  --ink: #102f3a;
-  --muted: #526a73;
+  --navy: #0173B2;
+  --blue: #0173B2;
+  --blue-hover: #005B8D;
+  --blue-soft: #E8F4FB;
+  --yellow: #E8F4FB;
+  --ink: #1A1A2E;
+  --muted: #1A1A2E;
   --line: #d5e3e8;
   --surface: #ffffff;
-  --page: #f3f8fa;
+  --page: #FFFFFF;
   --shadow: 0 18px 50px rgba(13, 89, 116, 0.10);
   --radius-sm: 0.8rem;
   --radius-md: 1.25rem;
@@ -295,6 +295,36 @@ html.high-contrast .support-column::after {
   border: 3px solid #000;
   box-shadow: none;
 }
+
+/* Hassle Pass: blue identity, white pages and Black Russian text. */
+html:not(.high-contrast) .hero-panel,
+html:not(.high-contrast) .values-section,
+html:not(.high-contrast) #why-us.values-section,
+html:not(.high-contrast) .footer-directory,
+html:not(.high-contrast) .site-footer {
+  background: #FFFFFF;
+  color: #1A1A2E;
+}
+html:not(.high-contrast) .hero-intro,
+html:not(.high-contrast) .values-section .section-heading > p:not(.eyebrow),
+html:not(.high-contrast) #why-us .section-heading > p:not(.eyebrow),
+html:not(.high-contrast) .sponsor-warning,
+html:not(.high-contrast) .brand-sub.brand-tagline { color: #1A1A2E; }
+html:not(.high-contrast) .brand,
+html:not(.high-contrast) .brand-inverse,
+html:not(.high-contrast) .hero-panel h2 .hero-accent,
+html:not(.high-contrast) .values-section .eyebrow,
+html:not(.high-contrast) .footer-directory h2 { color: #0173B2; }
+html:not(.high-contrast) .header-cta { background: #0173B2; color: #FFFFFF; }
+html:not(.high-contrast) .header-cta:hover { background: #005B8D; }
+html:not(.high-contrast) .brand-main { border-bottom-color: #0173B2; }
+html:not(.high-contrast) .quote-card::before,
+html:not(.high-contrast) .main-nav a::after { background: #0173B2; }
+html:not(.high-contrast) .footer-directory { border-bottom-color: var(--line); }
+html:not(.high-contrast) .footer-directory :focus-visible { outline-color: #0173B2; }
+html:not(.high-contrast) .travelex-lockup strong { color: #1A1A2E; }
+html:not(.high-contrast) .info-box { background: #E8F4FB; }
+.brand-main.barrier-wordmark { white-space: nowrap; }
 
 /* Preserve the high-contrast theme even though this file loads last. */
 html.high-contrast {

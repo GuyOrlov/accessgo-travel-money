@@ -1,6 +1,6 @@
-# BarrierEx
+# Hassle Pass
 
-**Travel money. No barriers.**
+**Enjoy your trip!**
 
 Travel money, your way. Clear prices, simple ordering and support that works for you.
 
@@ -8,11 +8,11 @@ An accessible holiday money website concept. Formerly AccessGo, ITER and KITE Tr
 
 ## Brand
 
-- Barrier Teal: `#0B4F6C`
-- Deep Teal (hover): `#073B51`
-- Sunshine Yellow: `#FFD84D`
-- Cloud: `#F3F8FA`
-- White: `#FFFFFF`
+- Brand blue: `#0173B2`
+- Blue hover: `#005B8D`
+- Pale blue accents: `#E8F4FB`
+- Page background: `#FFFFFF`
+- Black Russian text: `#1A1A2E`
 - Typeface: self-hosted Atkinson Hyperlegible Next, weights 200–800.
 - Values: independence, clarity, choice and inclusion.
 
@@ -30,7 +30,7 @@ Rates and delivery charges are illustrative. The website cannot accept payments.
 
 WHO population estimates are linked on the page. They are not customer numbers, and the groups overlap.
 
-The requested domain is `barrierex.com`. Registration, ownership and connection must be confirmed before changing the live website address. No domain has been purchased or changed as part of this rebrand.
+The existing website address is retained: https://guyorlov.com/accessgo-travel-money/.
 
 ## Font licence
 

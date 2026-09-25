@@ -7,16 +7,16 @@
 }
 
 :root {
-  --navy: #0b4f6c;
-  --blue: #0b4f6c;
-  --blue-hover: #073b51;
-  --blue-soft: #e8f3f6;
-  --yellow: #ffd84d;
-  --ink: #163440;
-  --muted: #49616b;
+  --navy: #0173B2;
+  --blue: #0173B2;
+  --blue-hover: #005B8D;
+  --blue-soft: #E8F4FB;
+  --yellow: #E8F4FB;
+  --ink: #1A1A2E;
+  --muted: #1A1A2E;
   --line: #cfdee4;
   --surface: #ffffff;
-  --page: #f3f8fa;
+  --page: #FFFFFF;
   --shadow: 0 14px 40px rgba(11, 79, 108, 0.08);
   --body-scale: 1;
 }
@@ -191,7 +191,7 @@ html[dir="rtl"] .chat-form button { border-radius: 0.7rem 0 0 0.7rem; }
   font-weight: 700;
   text-decoration: none;
 }
-.header-cta:hover { background: #ffe582; }
+.header-cta:hover { background: #D1EAF8; }
 .menu-toggle { display: none; }
 
 /* Quote first in the document and on mobile; hero on the left on desktop. */
@@ -629,7 +629,7 @@ html.high-contrast .delivery-option.is-selected { border-width: 3px; }
 .best-offer { border: 2px solid var(--blue); }
 .offer-provider h2 { font-size: 1.25rem; margin: 0.25rem 0 0.65rem; }
 .offer-caption, .offer-metric dt { display: block; font-size: 0.875rem; color: var(--muted); }
-.best-badge { display: inline-block; border-radius: 0.4rem; padding: 0.2rem 0.5rem; background: var(--yellow); color: #163440; font-size: 0.875rem; font-weight: 700; }
+.best-badge { display: inline-block; border-radius: 0.4rem; padding: 0.2rem 0.5rem; background: var(--yellow); color: #1A1A2E; font-size: 0.875rem; font-weight: 700; }
 .offer-numbers { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: 0.6rem 1rem; margin: 0; }
 .offer-amount { grid-row: span 2; }
 .offer-metric dd { margin: 0.2rem 0 0; font-size: 1rem; font-weight: 700; overflow-wrap: anywhere; }
