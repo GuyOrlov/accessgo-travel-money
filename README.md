@@ -1,63 +1,15 @@
-# Hassle Pass
+# HasslePass — Currency Sorted.
 
-**Enjoy your trip!**
+Static GitHub Pages concept website at https://guyorlov.com/accessgo-travel-money/.
 
-Travel money, your way. Clear prices, simple ordering and support that works for you.
+## September 2026 design
 
-An accessible holiday money website concept. Formerly AccessGo, ITER and KITE Travel Money.
+The supplied HasslePass image and partnership proposal inform the pale blue, navy and coral design. `index.html`, `hasslepass.css` and `hasslepass.js` implement the current eVoucher concept. The supplied image is `hasslepass-concept.jpg`.
 
-## Brand
+The quote uses fixed illustrative rates, including GBP/USD 1.30, and an example zero provider fee. It accepts GBP 75–2500 with at most two decimals. The eVoucher modal is explicitly not valid; no payment, email, wallet or ATM integration occurs. Travelex is a proposed partner, not a confirmed service provider. Claims about global coverage, wallet compatibility and validity are identified as unconfirmed.
 
-- Brand blue: `#0173B2`
-- Blue hover: `#005B8D`
-- Pale blue accents: `#E8F4FB`
-- Page background: `#FFFFFF`
-- Black Russian text: `#1A1A2E`
-- Typeface: self-hosted Atkinson Hyperlegible Next, weights 200–800.
-- Values: independence, clarity, choice and inclusion.
+English, Spanish, French and Hebrew are supported. Hebrew uses RTL layout. Accessibility preferences retain the existing localStorage keys. Native dialogs support Escape and focus return. The helper runs locally with preset replies and does not transmit chat input. World clocks use browser Intl timezone handling and update every 30 seconds.
 
-## Website
+`results.html` preserves old links by redirecting to the current quote and retaining query parameters. `legal.html` retains the existing four-language notices and legacy CSS/JS dependencies; the old SEO injection no longer overrides its metadata. Legacy comparison code remains available in version history.
 
-This is a static HTML, CSS and JavaScript site. GitHub Pages serves the repository root. No build step or external font service is required.
-
-The calculator is first on mobile and in the document reading order. The desktop travel photograph is hidden at widths of 900px and below. Text size, contrast, keyboard navigation and reduced-motion preferences are retained.
-
-The `accessgo-` local storage preference keys are retained so existing visitors keep their accessibility settings after the rebrand.
-
-## Prototype limits
-
-Rates and delivery charges are illustrative. The website cannot accept payments. The travel helper uses preset demonstration responses, and live text support and BSL videos are planned. Travelex sponsorship is an example only and is not confirmed.
-
-WHO population estimates are linked on the page. They are not customer numbers, and the groups overlap.
-
-The existing website address is retained: https://guyorlov.com/accessgo-travel-money/.
-
-## Font licence
-
-Atkinson Hyperlegible Next is distributed under the SIL Open Font License 1.1. See `font-license.txt`. The unmodified font is from the [Google Fonts repository](https://github.com/google/fonts/tree/main/ofl/atkinsonhyperlegiblenext).
-
-## Language and plain English
-
-UK English is the default. The globe menu also offers Spanish, French and Hebrew. Interface text, screen-reader labels, quote messages, help windows and preset chat replies use the selected language.
-
-Hebrew uses right-to-left page layout. Currency codes and the GBP amount input remain easy to read. The language choice is saved in the visitor's browser under `gowithkite-language`; text-size and contrast settings keep their existing keys. All controls continue to work when browser storage is blocked.
-
-`languages.js` contains the four local dictionaries. There is no third-party translation widget or location tracking. Changing language does not change the currencies offered, the illustrative rates, the UK nature of BSL support, or the prototype's no-payment status.
-
-## Compact layout
-
-The photo sits directly below the main message. Cards use their content height. The repeated text/BSL support card has been removed; Help links to the travel chat, and BSL remains in the header.
-
-## Example comparisons
-
-The quote button opens `results.html` with the amount, currency, delivery choice and language in its query string. The input is the total GBP budget: fees are deducted before conversion. The homepage shows Provider A's illustrative calculation; comparison offers may use different rates and fees.
-
-The second page shows three explicitly fictional providers, fee-inclusive foreign amounts, sample ratings (not customer reviews), and fictional collection points. Offers can be sorted by amount or sample rating. Details explain the calculation; there are no purchase links, real branches, location tracking or live offers. Change your quote preserves the entered choices. All four languages, RTL, text size and contrast are supported on both pages.
-
-Foreign amounts are rounded to minor currency units for illustration; real cash denomination requirements are not modelled.
-
-## Legal and privacy page
-
-`legal.html` contains plain-language terms and conditions, privacy information, cookie and local-storage details, and an accessibility statement. Footer links open each section directly. The legal page supports the same four languages, text-size control, high-contrast mode and compact mobile menu.
-
-The current notice describes the demo as it exists: no account, contact form, payment, analytics or live order; preset chat replies run in the browser; quote choices appear in the results URL; accessibility preferences use local storage; GitHub Pages provides hosting. Business identity, working privacy/accessibility contacts and live purchase terms must be added before launch.
+No build or dependency installation is needed. Preview with a static HTTP server. The font is self-hosted Atkinson Hyperlegible Next under the SIL Open Font License; see `font-license.txt`.
