@@ -4,3 +4,37 @@
 @media(max-width:760px){.wrap{width:calc(100% - 2rem)}.notice{font-size:.8rem}.site-header{flex-direction:column;align-items:flex-start;padding-block:1rem}.site-header nav{width:100%;display:grid;grid-template-columns:repeat(4,1fr);gap:.3rem;font-size:.9rem}.toolbar{flex-direction:column;gap:.5rem}.toolbar>span{max-width:none}.tools{width:100%}.hero{grid-template-columns:1fr;gap:1.8rem;padding-block:1.5rem 2rem}.hero-copy{max-width:560px}h1{max-width:none;font-size:3rem}.lead{font-size:1.1rem}.hero-promise{margin-top:1rem}.quote-card{padding:1.3rem}.benefit-strip{flex-wrap:wrap;justify-content:flex-start;font-size:.9rem;gap:.5rem 1.3rem}.section{padding-block:3rem}.split{grid-template-columns:1fr;gap:1.5rem}.section-head{margin-bottom:1.8rem}.concept-section,.community-section{padding-block:3rem}.clocks{grid-template-columns:repeat(2,1fr)}.help-section{padding-top:0}.footer-inner{align-items:flex-start}.footer-inner nav{margin:0;width:100%}.steps{gap:1.3rem}.text-large .site-header nav{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:380px){.steps{grid-template-columns:1fr}.site-header nav{grid-template-columns:repeat(2,1fr)}.money-field{padding:.4rem}.code{padding-inline-start:.3rem}.clocks{grid-template-columns:1fr}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+/* Keep narrow tablets and enlarged text clear of the fixed-width quote column. */
+.hero-copy,.split>*,.steps>*,.clocks>*{min-width:0}
+h1,h2,h3,.quote-summary dt,.quote-summary dd{overflow-wrap:anywhere}
+@media(max-width:900px){
+ .hero{grid-template-columns:minmax(0,1fr);gap:2rem}
+ .hero-copy{max-width:650px}
+ .hero h1{max-width:none}
+ .quote-card{width:100%;max-width:600px;margin-inline:auto}
+ .split{grid-template-columns:minmax(0,1fr);gap:2rem}
+ .site-header{flex-wrap:wrap}
+ .toolbar{flex-wrap:wrap}
+ .toolbar>span{max-width:none}
+}
+@media(max-width:1100px){
+ .text-large .hero,.text-large .split{grid-template-columns:minmax(0,1fr)}
+ .text-large .hero h1{max-width:none}
+ .text-large .quote-card{max-width:650px;width:100%;margin-inline:auto}
+ .text-large .site-header,.text-large .toolbar{flex-wrap:wrap}
+}
+@media(max-width:480px){
+ .site-header nav{grid-template-columns:repeat(2,minmax(0,1fr));gap:.35rem 1rem}
+ .site-header nav a{min-height:44px;display:flex;align-items:center}
+ .hero h1{font-size:2.5rem}
+ .quote-summary div{flex-wrap:wrap;gap:.2rem .7rem}
+ .quote-summary dd{margin-inline-start:auto}
+ .money-field{flex-wrap:wrap}
+ .money-field output{flex:1 0 100%;font-size:1.4rem;white-space:nowrap}
+ .money-field select{margin-inline-start:auto;border-inline-start:0;border-top:1px solid var(--line);max-width:100%;width:100%}
+ .card-top{flex-wrap:wrap;gap:.5rem}
+ .text-large .steps,.text-large .clocks{grid-template-columns:minmax(0,1fr)}
+ dialog{padding:1.2rem}
+}
+@media(max-width:480px){.money-field input{flex:1 1 0;width:0}.money-field .code{flex:0 0 auto}}
